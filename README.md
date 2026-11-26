@@ -1,6 +1,6 @@
 # A6700 open gate: test kit (firmware 2.00)
 
-<p><b>Credit to @resaviews for sharing the initial port</b></p>
+<p><b>Credit to @resaviews (instagram) | @resaviewsgit (github) for sharing the initial port</b></p>
 
 <p><b>Kit v1 (2026-11-26). Not yet run on an A6700 by this project.</b> This is a <b>contributed port</b>: a contributor ported the open gate of our other kits to the Sony A6700 (ILCE-6700) firmware 2.00 and sent it to us as his own kit ("a6700-opengate v1.0"). Its author reports that it records 3840 × 2560 at 24p, 25p and 50p and 5760 × 3840 at 24p and 25p on an A6700. We have seen no logs or clips from those runs. This repository carries the same memory changes in the shape of our other kits: our helper program, our runner with its read-only check before any write, one USB session per step, Windows, macOS and Android. The patch only changes the running camera's memory; a cold boot (battery out for 10 seconds) removes it.</p>
 
