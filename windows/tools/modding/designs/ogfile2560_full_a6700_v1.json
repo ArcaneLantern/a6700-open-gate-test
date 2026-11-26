@@ -1,0 +1,7672 @@
+{
+ "design": "ogfile2560_full_a6700_v1",
+ "build": "a6700_200",
+ "camera": "ILCE-6700 (A6700), firmware 2.00",
+ "title": "3840x2560 Open Gate encoding + native 3840x2560 MP4 headers on XAVC HS, XAVC S & XAVC S-I (23.98p, 25p, 50p dual-core) (A6700 2.00)",
+ "generated_by": "build/build_ogfile_a6700.py from the contributed design ogfile2560_hs_s_pal50_a6700_v1 (work/contrib/a6700_v1.0); compared with ogfile2560_hs_s_a6700_v2",
+ "family": "hs_s_si",
+ "format": "XAVC HS 4K (HEVC), XAVC S 4K (AVC) and XAVC S-I 4K (AVC intra)",
+ "raster": [
+  3840,
+  2560
+ ],
+ "rates": [
+  "23.98p",
+  "25p",
+  "50p"
+ ],
+ "artifact_sha256": {
+  "libmpr.so": "95756ae25a7ca0fbf226918cba37409e0b8c619d28fba8a11e3c73c4800eb99d",
+  "av-cam.bin": "d31bdf03e736da47a1195170e8a72a00a3559ee594ac99799e070d5fa30080ad"
+ },
+ "summary": {
+  "libmpr.so": {
+   "sites": 8,
+   "bytes": 22,
+   "code_sites": 3
+  },
+  "av-cam.bin": {
+   "sites": 475,
+   "bytes": 1343,
+   "code_sites": 0
+  }
+ },
+ "sites_by_kind": {
+  "L1-comb": 5,
+  "L5-mediaprofile": 1,
+  "L4-mp4size": 2,
+  "A3-clip": 1,
+  "A0-unit": 1,
+  "A1-desc": 107,
+  "A2-profile": 329,
+  "A2-level": 37
+ },
+ "sites_by_part": {
+  "builder": {
+   "sites": 120,
+   "bytes": 298
+  },
+  "s_i": {
+   "sites": 49,
+   "bytes": 106
+  },
+  "media_profile": {
+   "sites": 1,
+   "bytes": 4
+  },
+  "mp4_header": {
+   "sites": 2,
+   "bytes": 8
+  },
+  "clip_row": {
+   "sites": 1,
+   "bytes": 12
+  },
+  "unit_row": {
+   "sites": 1,
+   "bytes": 16
+  },
+  "sq120": {
+   "sites": 161,
+   "bytes": 371
+  },
+  "p50": {
+   "sites": 124,
+   "bytes": 490
+  },
+  "hevc8": {
+   "sites": 24,
+   "bytes": 60
+  }
+ },
+ "parts": {
+  "builder": "XAVC HS 4K / XAVC S 4K at 23.98p and 25p, normal speed: the descriptors our builder changes",
+  "hevc8": "HEVC 4:2:0 8-bit rows at 23.98p and 25p (no menu format of this camera that we know of)",
+  "p50": "50p (coding-rate code 1), normal speed: HEVC, AVC and S-I; the one-core long-GOP rows are made two-core",
+  "s_i": "XAVC S-I 4K (codec 0x18) at 23.98p and 25p, normal speed (both the UseCore 2 rows and their UseCore 0 twins)",
+  "sq120": "rows with input rate 120 (slow and quick recording at 100/120 frames a second coded as 23.98p, 25p or 50p)"
+ },
+ "descriptors_by_part": {
+  "builder": 29,
+  "sq120": 30,
+  "p50": 18,
+  "s_i": 8,
+  "hevc8": 6
+ },
+ "compared_with_our_builder": {
+  "design": "ogfile2560_hs_s_a6700_v2",
+  "bytes_ours_changes": 217,
+  "the_same_in_both": 214,
+  "same_place_other_value": {
+   "unit-type row 3 (ours := row 2 or the same two-core order)": 3
+  },
+  "only_in_the_contributed_design": 714
+ },
+ "profiles_shared_with_descriptors_the_design_does_not_change": [],
+ "status": "contributed; its author reports it running on an A6700 2.00 (no logs seen). Converted and checked against the 2.00 files here; emulated by build/run_ogfile_emu_a6700.py and build/emu_mp4_meta.py --build a6700_200. Never run on a camera by us.",
+ "descriptors": [
+  {
+   "descriptor": 5,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 26,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 3,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC S 4K (AVC), 4:2:0 8-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 6,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 26,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 4,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC S 4K (AVC), 4:2:0 8-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 8,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 33,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 6,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC S 4K (AVC), 4:2:0 8-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 9,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 33,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 7,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC S 4K (AVC), 4:2:0 8-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 27,
+   "codec": 4,
+   "input_rate": 120,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 23,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 102801,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 3,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC S 4K (AVC), 4:2:0 8-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 28,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 23,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 102802,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "p50",
+   "format": "XAVC S 4K (AVC), 4:2:0 8-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 37,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 21,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 102401,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "p50",
+   "format": "XAVC S 4K (AVC), 4:2:2 10-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 39,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 34,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 102403,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "p50",
+   "format": "XAVC S 4K (AVC), 4:2:2 10-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 40,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 24,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 102501,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC S 4K (AVC), 4:2:2 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 41,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 24,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 102600,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC S 4K (AVC), 4:2:2 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 43,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 34,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 102503,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC S 4K (AVC), 4:2:2 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 44,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 34,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 102601,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC S 4K (AVC), 4:2:2 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 52,
+   "codec": 4,
+   "input_rate": 120,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 26,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 102901,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 3,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC S 4K (AVC), 4:2:0 8-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 53,
+   "codec": 4,
+   "input_rate": 120,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 26,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 103000,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 3,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC S 4K (AVC), 4:2:0 8-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 55,
+   "codec": 4,
+   "input_rate": 120,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 33,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 102903,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 3,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC S 4K (AVC), 4:2:0 8-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 56,
+   "codec": 4,
+   "input_rate": 120,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 33,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 103001,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 3,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC S 4K (AVC), 4:2:0 8-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 58,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 34,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 102909,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC S 4K (AVC), 4:2:0 8-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 59,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 34,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 103004,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC S 4K (AVC), 4:2:0 8-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 61,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 4,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 102911,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC S 4K (AVC), 4:2:0 8-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 62,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 4,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 103005,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC S 4K (AVC), 4:2:0 8-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 71,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 24,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 102405,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "p50",
+   "format": "XAVC S 4K (AVC), 4:2:2 10-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 73,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 39,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 102407,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "p50",
+   "format": "XAVC S 4K (AVC), 4:2:2 10-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 75,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 21,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 102409,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC S 4K (AVC), 4:2:2 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 76,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 21,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 102410,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC S 4K (AVC), 4:2:2 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 78,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 39,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 102603,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC S 4K (AVC), 4:2:2 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 79,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 39,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 102604,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC S 4K (AVC), 4:2:2 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 81,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 34,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 102808,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "p50",
+   "format": "XAVC S 4K (AVC), 4:2:0 8-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 83,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 6,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 102810,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "p50",
+   "format": "XAVC S 4K (AVC), 4:2:0 8-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 109,
+   "codec": 24,
+   "input_rate": 0,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 11,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 105201,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 0,
+   "f38": [
+    2,
+    7
+   ],
+   "part": "p50",
+   "format": "XAVC S-I 4K (AVC intra), 4:2:2 10-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 113,
+   "codec": 24,
+   "input_rate": 0,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 13,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 105205,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 0,
+   "f38": [
+    2,
+    8
+   ],
+   "part": "s_i",
+   "format": "XAVC S-I 4K (AVC intra), 4:2:2 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 114,
+   "codec": 24,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 14,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 105206,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 0,
+   "f38": [
+    2,
+    8
+   ],
+   "part": "s_i",
+   "format": "XAVC S-I 4K (AVC intra), 4:2:2 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 116,
+   "codec": 24,
+   "input_rate": 0,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 18,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 105208,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 0,
+   "f38": [
+    2,
+    7
+   ],
+   "part": "s_i",
+   "format": "XAVC S-I 4K (AVC intra), 4:2:2 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 117,
+   "codec": 24,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 19,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 105209,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 0,
+   "f38": [
+    2,
+    7
+   ],
+   "part": "s_i",
+   "format": "XAVC S-I 4K (AVC intra), 4:2:2 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 122,
+   "codec": 4,
+   "input_rate": 120,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 21,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 102412,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 3,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC S 4K (AVC), 4:2:2 10-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 124,
+   "codec": 4,
+   "input_rate": 120,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 24,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 102505,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 3,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC S 4K (AVC), 4:2:2 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 125,
+   "codec": 4,
+   "input_rate": 120,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 24,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 102605,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 3,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC S 4K (AVC), 4:2:2 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 131,
+   "codec": 24,
+   "input_rate": 120,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 11,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 105214,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 0,
+   "f38": [
+    2,
+    8
+   ],
+   "part": "sq120",
+   "format": "XAVC S-I 4K (AVC intra), 4:2:2 10-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 135,
+   "codec": 24,
+   "input_rate": 120,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 18,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 105218,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 0,
+   "f38": [
+    2,
+    8
+   ],
+   "part": "sq120",
+   "format": "XAVC S-I 4K (AVC intra), 4:2:2 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 136,
+   "codec": 24,
+   "input_rate": 120,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 19,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 105219,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 0,
+   "f38": [
+    2,
+    8
+   ],
+   "part": "sq120",
+   "format": "XAVC S-I 4K (AVC intra), 4:2:2 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 140,
+   "codec": 4,
+   "input_rate": 120,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 26,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 102606,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 3,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC S 4K (AVC), 4:2:2 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 141,
+   "codec": 4,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 26,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 102607,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC S 4K (AVC), 4:2:2 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 161,
+   "codec": 24,
+   "input_rate": 0,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 11,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 205201,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 0,
+   "f38": [
+    0,
+    3
+   ],
+   "part": "p50",
+   "format": "XAVC S-I 4K (AVC intra), 4:2:2 10-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 165,
+   "codec": 24,
+   "input_rate": 0,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 13,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 205205,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 0,
+   "f38": [
+    0,
+    3
+   ],
+   "part": "s_i",
+   "format": "XAVC S-I 4K (AVC intra), 4:2:2 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 166,
+   "codec": 24,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 14,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 205206,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 0,
+   "f38": [
+    0,
+    3
+   ],
+   "part": "s_i",
+   "format": "XAVC S-I 4K (AVC intra), 4:2:2 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 168,
+   "codec": 24,
+   "input_rate": 0,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 18,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 205208,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 0,
+   "f38": [
+    0,
+    2
+   ],
+   "part": "s_i",
+   "format": "XAVC S-I 4K (AVC intra), 4:2:2 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 169,
+   "codec": 24,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 19,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 205209,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 0,
+   "f38": [
+    0,
+    2
+   ],
+   "part": "s_i",
+   "format": "XAVC S-I 4K (AVC intra), 4:2:2 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 402,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 26,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 102203,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "hevc8",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 8-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 403,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 26,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 102300,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "hevc8",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 8-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 405,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 26,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 101503,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 4,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "p50",
+   "format": "XAVC HS 4K (HEVC), 4:2:2 10-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 406,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 26,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 101702,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC HS 4K (HEVC), 4:2:2 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 407,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 26,
+   "chroma_req": 0,
+   "bit_len_req": 1,
+   "profile_key": 101901,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 408,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 26,
+   "chroma_req": 0,
+   "bit_len_req": 1,
+   "profile_key": 102000,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 412,
+   "codec": 14,
+   "input_rate": 120,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 26,
+   "chroma_req": 0,
+   "bit_len_req": 1,
+   "profile_key": 101909,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 3,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 413,
+   "codec": 14,
+   "input_rate": 120,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 26,
+   "chroma_req": 0,
+   "bit_len_req": 1,
+   "profile_key": 102004,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 3,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 423,
+   "codec": 14,
+   "input_rate": 120,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 26,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 101519,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 4,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC HS 4K (HEVC), 4:2:2 10-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 424,
+   "codec": 14,
+   "input_rate": 120,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 26,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 101706,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 3,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC HS 4K (HEVC), 4:2:2 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 428,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 24,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 101609,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC HS 4K (HEVC), 4:2:2 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 430,
+   "codec": 14,
+   "input_rate": 120,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 24,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 101615,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 3,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC HS 4K (HEVC), 4:2:2 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 433,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 23,
+   "chroma_req": 0,
+   "bit_len_req": 1,
+   "profile_key": 101801,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 4,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "p50",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 10-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 434,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 23,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 102101,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 4,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "p50",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 8-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 436,
+   "codec": 14,
+   "input_rate": 120,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 23,
+   "chroma_req": 0,
+   "bit_len_req": 1,
+   "profile_key": 101815,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 4,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 10-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 444,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 21,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 101515,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 4,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "p50",
+   "format": "XAVC HS 4K (HEVC), 4:2:2 10-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 451,
+   "codec": 14,
+   "input_rate": 120,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 21,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 101521,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 4,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC HS 4K (HEVC), 4:2:2 10-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 474,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 35,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 102107,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 4,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "p50",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 8-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 476,
+   "codec": 14,
+   "input_rate": 120,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 35,
+   "chroma_req": 0,
+   "bit_len_req": 1,
+   "profile_key": 101819,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 4,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 10-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 478,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 35,
+   "chroma_req": 0,
+   "bit_len_req": 1,
+   "profile_key": 101821,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 4,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "p50",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 10-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 480,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 36,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 101607,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC HS 4K (HEVC), 4:2:2 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 481,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 36,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 101703,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC HS 4K (HEVC), 4:2:2 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 483,
+   "codec": 14,
+   "input_rate": 120,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 36,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 101613,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 3,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC HS 4K (HEVC), 4:2:2 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 484,
+   "codec": 14,
+   "input_rate": 120,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 36,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 101707,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 3,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC HS 4K (HEVC), 4:2:2 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 508,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 41,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 102205,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "hevc8",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 8-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 509,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 41,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 102302,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "hevc8",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 8-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 511,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 41,
+   "chroma_req": 0,
+   "bit_len_req": 1,
+   "profile_key": 101907,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 512,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 41,
+   "chroma_req": 0,
+   "bit_len_req": 1,
+   "profile_key": 102003,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 514,
+   "codec": 14,
+   "input_rate": 120,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 41,
+   "chroma_req": 0,
+   "bit_len_req": 1,
+   "profile_key": 101913,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 3,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 515,
+   "codec": 14,
+   "input_rate": 120,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 41,
+   "chroma_req": 0,
+   "bit_len_req": 1,
+   "profile_key": 102006,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 3,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 517,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 34,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 102204,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "hevc8",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 8-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 518,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 34,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 102301,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "hevc8",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 8-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 520,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 34,
+   "chroma_req": 0,
+   "bit_len_req": 1,
+   "profile_key": 101905,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 521,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 34,
+   "chroma_req": 0,
+   "bit_len_req": 1,
+   "profile_key": 102002,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 537,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 34,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 101705,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC HS 4K (HEVC), 4:2:2 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 539,
+   "codec": 14,
+   "input_rate": 120,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 34,
+   "chroma_req": 0,
+   "bit_len_req": 1,
+   "profile_key": 101911,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 3,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 540,
+   "codec": 14,
+   "input_rate": 120,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 34,
+   "chroma_req": 0,
+   "bit_len_req": 1,
+   "profile_key": 102005,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 3,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 549,
+   "codec": 14,
+   "input_rate": 120,
+   "coding_rate_code": 5,
+   "f0c": 0,
+   "quality_class": 34,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 101708,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 3,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC HS 4K (HEVC), 4:2:2 10-bit",
+   "rate": "23.98p"
+  },
+  {
+   "descriptor": 555,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 33,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 101517,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 4,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "p50",
+   "format": "XAVC HS 4K (HEVC), 4:2:2 10-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 561,
+   "codec": 14,
+   "input_rate": 120,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 33,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 101523,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 4,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC HS 4K (HEVC), 4:2:2 10-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 563,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 32,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 101611,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 3,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "builder",
+   "format": "XAVC HS 4K (HEVC), 4:2:2 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 571,
+   "codec": 14,
+   "input_rate": 120,
+   "coding_rate_code": 3,
+   "f0c": 0,
+   "quality_class": 32,
+   "chroma_req": 1,
+   "bit_len_req": 1,
+   "profile_key": 101617,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 3,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC HS 4K (HEVC), 4:2:2 10-bit",
+   "rate": "25p"
+  },
+  {
+   "descriptor": 573,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 31,
+   "chroma_req": 0,
+   "bit_len_req": 1,
+   "profile_key": 101805,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 4,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "p50",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 10-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 575,
+   "codec": 14,
+   "input_rate": 0,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 31,
+   "chroma_req": 0,
+   "bit_len_req": 0,
+   "profile_key": 102105,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 0,
+   "pred_mode": 4,
+   "f38": [
+    0,
+    1
+   ],
+   "part": "p50",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 8-bit",
+   "rate": "50p"
+  },
+  {
+   "descriptor": 577,
+   "codec": 14,
+   "input_rate": 120,
+   "coding_rate_code": 1,
+   "f0c": 0,
+   "quality_class": 31,
+   "chroma_req": 0,
+   "bit_len_req": 1,
+   "profile_key": 101817,
+   "raster": [
+    3840,
+    2160
+   ],
+   "use_core": 2,
+   "pred_mode": 4,
+   "f38": [
+    2,
+    6
+   ],
+   "part": "sq120",
+   "format": "XAVC HS 4K (HEVC), 4:2:0 10-bit",
+   "rate": "50p"
+  }
+ ],
+ "patches": [
+  {
+   "binary": "libmpr.so",
+   "kind": "L1-comb",
+   "part": "builder",
+   "file_off": "0x27e596",
+   "va": "0x27e596",
+   "old": "7008",
+   "new": "000a",
+   "note": "g_videoParamComb row 0 (AVC 8-bit 4:2:0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "libmpr.so",
+   "kind": "L1-comb",
+   "part": "builder",
+   "file_off": "0x27e5c6",
+   "va": "0x27e5c6",
+   "old": "7008",
+   "new": "000a",
+   "note": "g_videoParamComb row 2 (AVC 10-bit 4:2:2 Long-GOP): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "libmpr.so",
+   "kind": "L1-comb",
+   "part": "builder",
+   "file_off": "0x27e60e",
+   "va": "0x27e60e",
+   "old": "7008",
+   "new": "000a",
+   "note": "g_videoParamComb row 5 (HEVC 10-bit 4:2:0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "libmpr.so",
+   "kind": "L1-comb",
+   "part": "builder",
+   "file_off": "0x27e63e",
+   "va": "0x27e63e",
+   "old": "7008",
+   "new": "000a",
+   "note": "g_videoParamComb row 7 (HEVC 10-bit 4:2:2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "libmpr.so",
+   "kind": "L1-comb",
+   "part": "s_i",
+   "file_off": "0x27e66e",
+   "va": "0x27e66e",
+   "old": "7008",
+   "new": "000a",
+   "note": "g_videoParamComb row 9 (AVC 10-bit 4:2:2 All-Intra (XAVC S-I)): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "libmpr.so",
+   "kind": "L5-mediaprofile",
+   "part": "media_profile",
+   "file_off": "0x15e4e4",
+   "va": "0x15e4e4",
+   "old": "e0179f1a",
+   "new": "e0379f1a",
+   "note": "LibMediaProfileIf CompareResolution (0x15e494), the 3840-wide case: `cmp w1, #0x870; cset w0, eq` -> `cset w0, hs`: a 3840-wide picture of 2,160 rows OR MORE counts as the QFHD class (contributed: for in-camera playback of a file whose headers say 2,560 rows)",
+   "code": true
+  },
+  {
+   "binary": "libmpr.so",
+   "kind": "L4-mp4size",
+   "part": "mp4_header",
+   "file_off": "0x1ec1b8",
+   "va": "0x1ec1b8",
+   "old": "050e8152",
+   "new": "05408152",
+   "note": "MP4 track height, XAVC S 4K and XAVC S-I 4K (AVC, combs 0, 2, 9): 2160 -> 2560 (`mov w5, #0x870` -> `mov w5, #0xa00`)",
+   "code": true
+  },
+  {
+   "binary": "libmpr.so",
+   "kind": "L4-mp4size",
+   "part": "mp4_header",
+   "file_off": "0x1ec2e8",
+   "va": "0x1ec2e8",
+   "old": "050e8152",
+   "new": "05408152",
+   "note": "MP4 track height, XAVC HS 4K (HEVC, combs 5, 7): 2160 -> 2560 (`mov w5, #0x870` -> `mov w5, #0xa00`)",
+   "code": true
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A3-clip",
+   "part": "clip_row",
+   "file_off": "0x391580",
+   "va": "0xffffffc001391580",
+   "old": "00200000e010000003000000",
+   "new": "000f0000000a000017000000",
+   "note": "clip-format row 1 (8192x4320, code 3; unused on this camera) -> 3840x2560, code 23, the code row 5 gives a 3840x2160 recording. Row 5 is left as it is",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A0-unit",
+   "part": "unit_row",
+   "file_off": "0x393678",
+   "va": "0xffffffc001393678",
+   "old": "00000000730400007604000079040000",
+   "new": "7704000086040000740400007a040000",
+   "note": "unit-type table row 3 (above 8,847,360 pixels; ids 0, 0x473, 0x476, 0x479, none of which has memory on this camera) := the 4K class's four blocks in the two-core order of build_og57.py: frame buffer CD 0x477 (14.2 MB), LD 0x486 (100.8 MB), multi 0x474 (50.8 MB), ES 0x47a",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x393a38",
+   "va": "0xffffffc001393a38",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #5 (AVC 4:2:0 8-bit, 25p, key 3, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3abe7e",
+   "va": "0xffffffc0013abe7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 3: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3abeb0",
+   "va": "0xffffffc0013abeb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 3: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3abf08",
+   "va": "0xffffffc0013abf08",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 3: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x393ac8",
+   "va": "0xffffffc001393ac8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #6 (AVC 4:2:0 8-bit, 23.98p, key 4, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3abf7e",
+   "va": "0xffffffc0013abf7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 4: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3abfb0",
+   "va": "0xffffffc0013abfb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 4: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3ac008",
+   "va": "0xffffffc0013ac008",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 4: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x393be8",
+   "va": "0xffffffc001393be8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #8 (AVC 4:2:0 8-bit, 25p, key 6, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3ac17e",
+   "va": "0xffffffc0013ac17e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 6: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3ac1b0",
+   "va": "0xffffffc0013ac1b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 6: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3ac208",
+   "va": "0xffffffc0013ac208",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 6: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x393c78",
+   "va": "0xffffffc001393c78",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #9 (AVC 4:2:0 8-bit, 23.98p, key 7, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3ac27e",
+   "va": "0xffffffc0013ac27e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 7: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3ac2b0",
+   "va": "0xffffffc0013ac2b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 7: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3ac308",
+   "va": "0xffffffc0013ac308",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 7: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x394698",
+   "va": "0xffffffc001394698",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #27 (AVC 4:2:0 8-bit, 50p, key 102801, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3ad47e",
+   "va": "0xffffffc0013ad47e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102801: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3ad4b0",
+   "va": "0xffffffc0013ad4b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102801: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3ad508",
+   "va": "0xffffffc0013ad508",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102801: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3ad4ce",
+   "va": "0xffffffc0013ad4ce",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 102801: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "sq120",
+   "file_off": "0x3ad51f",
+   "va": "0xffffffc0013ad51f",
+   "old": "34",
+   "new": "3c",
+   "note": "profile key 102801: AVC level 52 -> 60",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3946e0",
+   "va": "0xffffffc0013946e0",
+   "old": "0000000001000000",
+   "new": "0200000006000000",
+   "note": "descriptor #28 (AVC 4:2:0 8-bit, 50p, key 102802): enable dual-core flags",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x394720",
+   "va": "0xffffffc001394720",
+   "old": "000001000000000f7008",
+   "new": "020001000000000f000a",
+   "note": "descriptor #28 (AVC 4:2:0 8-bit, 50p, key 102802): UseCore=2 + height 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3ad57e",
+   "va": "0xffffffc0013ad57e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102802: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3ad5b0",
+   "va": "0xffffffc0013ad5b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102802: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3ad608",
+   "va": "0xffffffc0013ad608",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102802: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3ad5ce",
+   "va": "0xffffffc0013ad5ce",
+   "old": "0000",
+   "new": "0005",
+   "note": "profile key 102802: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "p50",
+   "file_off": "0x3ad61f",
+   "va": "0xffffffc0013ad61f",
+   "old": "34",
+   "new": "3c",
+   "note": "profile key 102802: AVC level 52 -> 60",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x394bf0",
+   "va": "0xffffffc001394bf0",
+   "old": "0000000001000000",
+   "new": "0200000006000000",
+   "note": "descriptor #37 (AVC 4:2:2 10-bit, 50p, key 102401): enable dual-core flags",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x394c30",
+   "va": "0xffffffc001394c30",
+   "old": "000001000000000f7008",
+   "new": "020001000000000f000a",
+   "note": "descriptor #37 (AVC 4:2:2 10-bit, 50p, key 102401): UseCore=2 + height 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3ade7e",
+   "va": "0xffffffc0013ade7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102401: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3adeb0",
+   "va": "0xffffffc0013adeb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102401: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3adf08",
+   "va": "0xffffffc0013adf08",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102401: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3adece",
+   "va": "0xffffffc0013adece",
+   "old": "0000",
+   "new": "0005",
+   "note": "profile key 102401: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "p50",
+   "file_off": "0x3adf1f",
+   "va": "0xffffffc0013adf1f",
+   "old": "34",
+   "new": "3c",
+   "note": "profile key 102401: AVC level 52 -> 60",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x394d10",
+   "va": "0xffffffc001394d10",
+   "old": "0000000001000000",
+   "new": "0200000006000000",
+   "note": "descriptor #39 (AVC 4:2:2 10-bit, 50p, key 102403): enable dual-core flags",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x394d50",
+   "va": "0xffffffc001394d50",
+   "old": "000001000000000f7008",
+   "new": "020001000000000f000a",
+   "note": "descriptor #39 (AVC 4:2:2 10-bit, 50p, key 102403): UseCore=2 + height 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3ae07e",
+   "va": "0xffffffc0013ae07e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102403: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3ae0b0",
+   "va": "0xffffffc0013ae0b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102403: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3ae108",
+   "va": "0xffffffc0013ae108",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102403: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3ae0ce",
+   "va": "0xffffffc0013ae0ce",
+   "old": "0000",
+   "new": "0005",
+   "note": "profile key 102403: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "p50",
+   "file_off": "0x3ae11f",
+   "va": "0xffffffc0013ae11f",
+   "old": "34",
+   "new": "3c",
+   "note": "profile key 102403: AVC level 52 -> 60",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x394de8",
+   "va": "0xffffffc001394de8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #40 (AVC 4:2:2 10-bit, 25p, key 102501, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3ae17e",
+   "va": "0xffffffc0013ae17e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102501: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3ae1b0",
+   "va": "0xffffffc0013ae1b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102501: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3ae208",
+   "va": "0xffffffc0013ae208",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102501: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x394e78",
+   "va": "0xffffffc001394e78",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #41 (AVC 4:2:2 10-bit, 23.98p, key 102600, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3ae27e",
+   "va": "0xffffffc0013ae27e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102600: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3ae2b0",
+   "va": "0xffffffc0013ae2b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102600: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3ae308",
+   "va": "0xffffffc0013ae308",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102600: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x394f98",
+   "va": "0xffffffc001394f98",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #43 (AVC 4:2:2 10-bit, 25p, key 102503, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3ae47e",
+   "va": "0xffffffc0013ae47e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102503: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3ae4b0",
+   "va": "0xffffffc0013ae4b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102503: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3ae508",
+   "va": "0xffffffc0013ae508",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102503: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x395028",
+   "va": "0xffffffc001395028",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #44 (AVC 4:2:2 10-bit, 23.98p, key 102601, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3ae57e",
+   "va": "0xffffffc0013ae57e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102601: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3ae5b0",
+   "va": "0xffffffc0013ae5b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102601: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3ae608",
+   "va": "0xffffffc0013ae608",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102601: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x3954a8",
+   "va": "0xffffffc0013954a8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #52 (AVC 4:2:0 8-bit, 25p, key 102901, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3aed7e",
+   "va": "0xffffffc0013aed7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102901: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3aedb0",
+   "va": "0xffffffc0013aedb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102901: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3aee08",
+   "va": "0xffffffc0013aee08",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102901: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3aedce",
+   "va": "0xffffffc0013aedce",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 102901: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x395538",
+   "va": "0xffffffc001395538",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #53 (AVC 4:2:0 8-bit, 23.98p, key 103000, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3aee7e",
+   "va": "0xffffffc0013aee7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 103000: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3aeeb0",
+   "va": "0xffffffc0013aeeb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 103000: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3aef08",
+   "va": "0xffffffc0013aef08",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 103000: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3aeece",
+   "va": "0xffffffc0013aeece",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 103000: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x395658",
+   "va": "0xffffffc001395658",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #55 (AVC 4:2:0 8-bit, 25p, key 102903, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3af07e",
+   "va": "0xffffffc0013af07e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102903: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3af0b0",
+   "va": "0xffffffc0013af0b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102903: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3af108",
+   "va": "0xffffffc0013af108",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102903: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3af0ce",
+   "va": "0xffffffc0013af0ce",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 102903: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x3956e8",
+   "va": "0xffffffc0013956e8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #56 (AVC 4:2:0 8-bit, 23.98p, key 103001, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3af17e",
+   "va": "0xffffffc0013af17e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 103001: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3af1b0",
+   "va": "0xffffffc0013af1b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 103001: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3af208",
+   "va": "0xffffffc0013af208",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 103001: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3af1ce",
+   "va": "0xffffffc0013af1ce",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 103001: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x395808",
+   "va": "0xffffffc001395808",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #58 (AVC 4:2:0 8-bit, 25p, key 102909, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3af37e",
+   "va": "0xffffffc0013af37e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102909: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3af3b0",
+   "va": "0xffffffc0013af3b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102909: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3af408",
+   "va": "0xffffffc0013af408",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102909: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x395898",
+   "va": "0xffffffc001395898",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #59 (AVC 4:2:0 8-bit, 23.98p, key 103004, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3af47e",
+   "va": "0xffffffc0013af47e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 103004: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3af4b0",
+   "va": "0xffffffc0013af4b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 103004: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3af508",
+   "va": "0xffffffc0013af508",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 103004: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x3959b8",
+   "va": "0xffffffc0013959b8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #61 (AVC 4:2:0 8-bit, 25p, key 102911, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3af67e",
+   "va": "0xffffffc0013af67e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102911: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3af6b0",
+   "va": "0xffffffc0013af6b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102911: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3af708",
+   "va": "0xffffffc0013af708",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102911: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x395a48",
+   "va": "0xffffffc001395a48",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #62 (AVC 4:2:0 8-bit, 23.98p, key 103005, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3af77e",
+   "va": "0xffffffc0013af77e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 103005: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3af7b0",
+   "va": "0xffffffc0013af7b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 103005: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3af808",
+   "va": "0xffffffc0013af808",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 103005: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x395f10",
+   "va": "0xffffffc001395f10",
+   "old": "0000000001000000",
+   "new": "0200000006000000",
+   "note": "descriptor #71 (AVC 4:2:2 10-bit, 50p, key 102405): enable dual-core flags",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x395f50",
+   "va": "0xffffffc001395f50",
+   "old": "000001000000000f7008",
+   "new": "020001000000000f000a",
+   "note": "descriptor #71 (AVC 4:2:2 10-bit, 50p, key 102405): UseCore=2 + height 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b007e",
+   "va": "0xffffffc0013b007e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102405: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b00b0",
+   "va": "0xffffffc0013b00b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102405: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b0108",
+   "va": "0xffffffc0013b0108",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102405: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b00ce",
+   "va": "0xffffffc0013b00ce",
+   "old": "0000",
+   "new": "0005",
+   "note": "profile key 102405: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "p50",
+   "file_off": "0x3b011f",
+   "va": "0xffffffc0013b011f",
+   "old": "34",
+   "new": "3c",
+   "note": "profile key 102405: AVC level 52 -> 60",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x396030",
+   "va": "0xffffffc001396030",
+   "old": "0000000001000000",
+   "new": "0200000006000000",
+   "note": "descriptor #73 (AVC 4:2:2 10-bit, 50p, key 102407): enable dual-core flags",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x396070",
+   "va": "0xffffffc001396070",
+   "old": "000001000000000f7008",
+   "new": "020001000000000f000a",
+   "note": "descriptor #73 (AVC 4:2:2 10-bit, 50p, key 102407): UseCore=2 + height 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b027e",
+   "va": "0xffffffc0013b027e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102407: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b02b0",
+   "va": "0xffffffc0013b02b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102407: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b0308",
+   "va": "0xffffffc0013b0308",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102407: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b02ce",
+   "va": "0xffffffc0013b02ce",
+   "old": "0000",
+   "new": "0005",
+   "note": "profile key 102407: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "p50",
+   "file_off": "0x3b031f",
+   "va": "0xffffffc0013b031f",
+   "old": "34",
+   "new": "3c",
+   "note": "profile key 102407: AVC level 52 -> 60",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x396198",
+   "va": "0xffffffc001396198",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #75 (AVC 4:2:2 10-bit, 25p, key 102409, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3b047e",
+   "va": "0xffffffc0013b047e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102409: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3b04b0",
+   "va": "0xffffffc0013b04b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102409: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3b0508",
+   "va": "0xffffffc0013b0508",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102409: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x396228",
+   "va": "0xffffffc001396228",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #76 (AVC 4:2:2 10-bit, 23.98p, key 102410, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3b057e",
+   "va": "0xffffffc0013b057e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102410: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3b05b0",
+   "va": "0xffffffc0013b05b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102410: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3b0608",
+   "va": "0xffffffc0013b0608",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102410: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x396348",
+   "va": "0xffffffc001396348",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #78 (AVC 4:2:2 10-bit, 25p, key 102603, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3b077e",
+   "va": "0xffffffc0013b077e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102603: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3b07b0",
+   "va": "0xffffffc0013b07b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102603: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3b0808",
+   "va": "0xffffffc0013b0808",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102603: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x3963d8",
+   "va": "0xffffffc0013963d8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #79 (AVC 4:2:2 10-bit, 23.98p, key 102604, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3b087e",
+   "va": "0xffffffc0013b087e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102604: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3b08b0",
+   "va": "0xffffffc0013b08b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102604: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3b0908",
+   "va": "0xffffffc0013b0908",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102604: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3964b0",
+   "va": "0xffffffc0013964b0",
+   "old": "0000000001000000",
+   "new": "0200000006000000",
+   "note": "descriptor #81 (AVC 4:2:0 8-bit, 50p, key 102808): enable dual-core flags",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3964f0",
+   "va": "0xffffffc0013964f0",
+   "old": "000001000000000f7008",
+   "new": "020001000000000f000a",
+   "note": "descriptor #81 (AVC 4:2:0 8-bit, 50p, key 102808): UseCore=2 + height 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b0a7e",
+   "va": "0xffffffc0013b0a7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102808: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b0ab0",
+   "va": "0xffffffc0013b0ab0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102808: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b0b08",
+   "va": "0xffffffc0013b0b08",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102808: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b0ace",
+   "va": "0xffffffc0013b0ace",
+   "old": "0000",
+   "new": "0005",
+   "note": "profile key 102808: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "p50",
+   "file_off": "0x3b0b1f",
+   "va": "0xffffffc0013b0b1f",
+   "old": "34",
+   "new": "3c",
+   "note": "profile key 102808: AVC level 52 -> 60",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3965d0",
+   "va": "0xffffffc0013965d0",
+   "old": "0000000001000000",
+   "new": "0200000006000000",
+   "note": "descriptor #83 (AVC 4:2:0 8-bit, 50p, key 102810): enable dual-core flags",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x396610",
+   "va": "0xffffffc001396610",
+   "old": "000001000000000f7008",
+   "new": "020001000000000f000a",
+   "note": "descriptor #83 (AVC 4:2:0 8-bit, 50p, key 102810): UseCore=2 + height 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b0c7e",
+   "va": "0xffffffc0013b0c7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102810: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b0cb0",
+   "va": "0xffffffc0013b0cb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102810: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b0d08",
+   "va": "0xffffffc0013b0d08",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102810: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b0cce",
+   "va": "0xffffffc0013b0cce",
+   "old": "0000",
+   "new": "0005",
+   "note": "profile key 102810: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "p50",
+   "file_off": "0x3b0d1f",
+   "va": "0xffffffc0013b0d1f",
+   "old": "34",
+   "new": "3c",
+   "note": "profile key 102810: AVC level 52 -> 60",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3974b8",
+   "va": "0xffffffc0013974b8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #109 (AVC-SI 4:2:2 10-bit, 50p, key 105201, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b267e",
+   "va": "0xffffffc0013b267e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 105201: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b26b0",
+   "va": "0xffffffc0013b26b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 105201: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b2708",
+   "va": "0xffffffc0013b2708",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 105201: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b26ce",
+   "va": "0xffffffc0013b26ce",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 105201: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "p50",
+   "file_off": "0x3b271f",
+   "va": "0xffffffc0013b271f",
+   "old": "34",
+   "new": "3d",
+   "note": "profile key 105201: AVC level 52 -> 61",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "s_i",
+   "file_off": "0x3976f8",
+   "va": "0xffffffc0013976f8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #113 (AVC-SI 4:2:2 10-bit, 25p, key 105205, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b2a7e",
+   "va": "0xffffffc0013b2a7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 105205: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b2ab0",
+   "va": "0xffffffc0013b2ab0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 105205: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b2b08",
+   "va": "0xffffffc0013b2b08",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 105205: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b2ace",
+   "va": "0xffffffc0013b2ace",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 105205: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "s_i",
+   "file_off": "0x3b2b1f",
+   "va": "0xffffffc0013b2b1f",
+   "old": "33",
+   "new": "3c",
+   "note": "profile key 105205: AVC level 51 -> 60",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "s_i",
+   "file_off": "0x397788",
+   "va": "0xffffffc001397788",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #114 (AVC-SI 4:2:2 10-bit, 23.98p, key 105206, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b2b7e",
+   "va": "0xffffffc0013b2b7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 105206: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b2bb0",
+   "va": "0xffffffc0013b2bb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 105206: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b2c08",
+   "va": "0xffffffc0013b2c08",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 105206: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b2bce",
+   "va": "0xffffffc0013b2bce",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 105206: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "s_i",
+   "file_off": "0x3b2c1f",
+   "va": "0xffffffc0013b2c1f",
+   "old": "33",
+   "new": "3c",
+   "note": "profile key 105206: AVC level 51 -> 60",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "s_i",
+   "file_off": "0x3978a8",
+   "va": "0xffffffc0013978a8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #116 (AVC-SI 4:2:2 10-bit, 25p, key 105208, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b2d7e",
+   "va": "0xffffffc0013b2d7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 105208: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b2db0",
+   "va": "0xffffffc0013b2db0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 105208: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b2e08",
+   "va": "0xffffffc0013b2e08",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 105208: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b2dce",
+   "va": "0xffffffc0013b2dce",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 105208: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "s_i",
+   "file_off": "0x3b2e1f",
+   "va": "0xffffffc0013b2e1f",
+   "old": "33",
+   "new": "3c",
+   "note": "profile key 105208: AVC level 51 -> 60",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "s_i",
+   "file_off": "0x397938",
+   "va": "0xffffffc001397938",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #117 (AVC-SI 4:2:2 10-bit, 23.98p, key 105209, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b2e7e",
+   "va": "0xffffffc0013b2e7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 105209: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b2eb0",
+   "va": "0xffffffc0013b2eb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 105209: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b2f08",
+   "va": "0xffffffc0013b2f08",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 105209: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b2ece",
+   "va": "0xffffffc0013b2ece",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 105209: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "s_i",
+   "file_off": "0x3b2f1f",
+   "va": "0xffffffc0013b2f1f",
+   "old": "33",
+   "new": "3c",
+   "note": "profile key 105209: AVC level 51 -> 60",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x397c08",
+   "va": "0xffffffc001397c08",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #122 (AVC 4:2:2 10-bit, 50p, key 102412, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b337e",
+   "va": "0xffffffc0013b337e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102412: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b33b0",
+   "va": "0xffffffc0013b33b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102412: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b3408",
+   "va": "0xffffffc0013b3408",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102412: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b33ce",
+   "va": "0xffffffc0013b33ce",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 102412: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "sq120",
+   "file_off": "0x3b341f",
+   "va": "0xffffffc0013b341f",
+   "old": "34",
+   "new": "3c",
+   "note": "profile key 102412: AVC level 52 -> 60",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x397d28",
+   "va": "0xffffffc001397d28",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #124 (AVC 4:2:2 10-bit, 25p, key 102505, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b357e",
+   "va": "0xffffffc0013b357e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102505: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b35b0",
+   "va": "0xffffffc0013b35b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102505: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b3608",
+   "va": "0xffffffc0013b3608",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102505: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b35ce",
+   "va": "0xffffffc0013b35ce",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 102505: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x397db8",
+   "va": "0xffffffc001397db8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #125 (AVC 4:2:2 10-bit, 23.98p, key 102605, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b367e",
+   "va": "0xffffffc0013b367e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102605: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b36b0",
+   "va": "0xffffffc0013b36b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102605: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b3708",
+   "va": "0xffffffc0013b3708",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102605: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b36ce",
+   "va": "0xffffffc0013b36ce",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 102605: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x398118",
+   "va": "0xffffffc001398118",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #131 (AVC-SI 4:2:2 10-bit, 50p, key 105214, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b3c7e",
+   "va": "0xffffffc0013b3c7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 105214: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b3cb0",
+   "va": "0xffffffc0013b3cb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 105214: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b3d08",
+   "va": "0xffffffc0013b3d08",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 105214: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b3cce",
+   "va": "0xffffffc0013b3cce",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 105214: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "sq120",
+   "file_off": "0x3b3d1f",
+   "va": "0xffffffc0013b3d1f",
+   "old": "34",
+   "new": "3d",
+   "note": "profile key 105214: AVC level 52 -> 61",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x398358",
+   "va": "0xffffffc001398358",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #135 (AVC-SI 4:2:2 10-bit, 25p, key 105218, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b407e",
+   "va": "0xffffffc0013b407e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 105218: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b40b0",
+   "va": "0xffffffc0013b40b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 105218: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b4108",
+   "va": "0xffffffc0013b4108",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 105218: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b40ce",
+   "va": "0xffffffc0013b40ce",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 105218: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "sq120",
+   "file_off": "0x3b411f",
+   "va": "0xffffffc0013b411f",
+   "old": "33",
+   "new": "3c",
+   "note": "profile key 105218: AVC level 51 -> 60",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x3983e8",
+   "va": "0xffffffc0013983e8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #136 (AVC-SI 4:2:2 10-bit, 23.98p, key 105219, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b417e",
+   "va": "0xffffffc0013b417e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 105219: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b41b0",
+   "va": "0xffffffc0013b41b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 105219: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b4208",
+   "va": "0xffffffc0013b4208",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 105219: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b41ce",
+   "va": "0xffffffc0013b41ce",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 105219: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "sq120",
+   "file_off": "0x3b421f",
+   "va": "0xffffffc0013b421f",
+   "old": "33",
+   "new": "3c",
+   "note": "profile key 105219: AVC level 51 -> 60",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x398628",
+   "va": "0xffffffc001398628",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #140 (AVC 4:2:2 10-bit, 23.98p, key 102606, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b457e",
+   "va": "0xffffffc0013b457e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102606: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b45b0",
+   "va": "0xffffffc0013b45b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102606: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b4608",
+   "va": "0xffffffc0013b4608",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102606: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3b45ce",
+   "va": "0xffffffc0013b45ce",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 102606: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x3986b8",
+   "va": "0xffffffc0013986b8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #141 (AVC 4:2:2 10-bit, 23.98p, key 102607, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3b467e",
+   "va": "0xffffffc0013b467e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102607: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3b46b0",
+   "va": "0xffffffc0013b46b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102607: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3b4708",
+   "va": "0xffffffc0013b4708",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102607: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3991f8",
+   "va": "0xffffffc0013991f8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #161 (AVC-SI 4:2:2 10-bit, 50p, key 205201, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b5a7e",
+   "va": "0xffffffc0013b5a7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 205201: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b5ab0",
+   "va": "0xffffffc0013b5ab0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 205201: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b5b08",
+   "va": "0xffffffc0013b5b08",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 205201: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3b5ace",
+   "va": "0xffffffc0013b5ace",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 205201: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "p50",
+   "file_off": "0x3b5b1f",
+   "va": "0xffffffc0013b5b1f",
+   "old": "34",
+   "new": "3d",
+   "note": "profile key 205201: AVC level 52 -> 61",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "s_i",
+   "file_off": "0x399438",
+   "va": "0xffffffc001399438",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #165 (AVC-SI 4:2:2 10-bit, 25p, key 205205, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b5e7e",
+   "va": "0xffffffc0013b5e7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 205205: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b5eb0",
+   "va": "0xffffffc0013b5eb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 205205: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b5f08",
+   "va": "0xffffffc0013b5f08",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 205205: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b5ece",
+   "va": "0xffffffc0013b5ece",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 205205: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "s_i",
+   "file_off": "0x3b5f1f",
+   "va": "0xffffffc0013b5f1f",
+   "old": "33",
+   "new": "3c",
+   "note": "profile key 205205: AVC level 51 -> 60",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "s_i",
+   "file_off": "0x3994c8",
+   "va": "0xffffffc0013994c8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #166 (AVC-SI 4:2:2 10-bit, 23.98p, key 205206, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b5f7e",
+   "va": "0xffffffc0013b5f7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 205206: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b5fb0",
+   "va": "0xffffffc0013b5fb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 205206: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b6008",
+   "va": "0xffffffc0013b6008",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 205206: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b5fce",
+   "va": "0xffffffc0013b5fce",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 205206: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "s_i",
+   "file_off": "0x3b601f",
+   "va": "0xffffffc0013b601f",
+   "old": "33",
+   "new": "3c",
+   "note": "profile key 205206: AVC level 51 -> 60",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "s_i",
+   "file_off": "0x3995e8",
+   "va": "0xffffffc0013995e8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #168 (AVC-SI 4:2:2 10-bit, 25p, key 205208, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b617e",
+   "va": "0xffffffc0013b617e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 205208: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b61b0",
+   "va": "0xffffffc0013b61b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 205208: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b6208",
+   "va": "0xffffffc0013b6208",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 205208: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b61ce",
+   "va": "0xffffffc0013b61ce",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 205208: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "s_i",
+   "file_off": "0x3b621f",
+   "va": "0xffffffc0013b621f",
+   "old": "33",
+   "new": "3c",
+   "note": "profile key 205208: AVC level 51 -> 60",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "s_i",
+   "file_off": "0x399678",
+   "va": "0xffffffc001399678",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #169 (AVC-SI 4:2:2 10-bit, 23.98p, key 205209, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b627e",
+   "va": "0xffffffc0013b627e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 205209: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b62b0",
+   "va": "0xffffffc0013b62b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 205209: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b6308",
+   "va": "0xffffffc0013b6308",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 205209: AVC height +0x90 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "s_i",
+   "file_off": "0x3b62ce",
+   "va": "0xffffffc0013b62ce",
+   "old": "3004",
+   "new": "0005",
+   "note": "profile key 205209: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "s_i",
+   "file_off": "0x3b631f",
+   "va": "0xffffffc0013b631f",
+   "old": "33",
+   "new": "3c",
+   "note": "profile key 205209: AVC level 51 -> 60",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "hevc8",
+   "file_off": "0x3a1988",
+   "va": "0xffffffc0013a1988",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #402 (HEVC 4:2:0 8-bit, 25p, key 102203, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "hevc8",
+   "file_off": "0x3c4d7e",
+   "va": "0xffffffc0013c4d7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102203: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "hevc8",
+   "file_off": "0x3c4db0",
+   "va": "0xffffffc0013c4db0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102203: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "hevc8",
+   "file_off": "0x3c4e04",
+   "va": "0xffffffc0013c4e04",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102203: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "hevc8",
+   "file_off": "0x3a1a18",
+   "va": "0xffffffc0013a1a18",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #403 (HEVC 4:2:0 8-bit, 23.98p, key 102300, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "hevc8",
+   "file_off": "0x3c4e7e",
+   "va": "0xffffffc0013c4e7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102300: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "hevc8",
+   "file_off": "0x3c4eb0",
+   "va": "0xffffffc0013c4eb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102300: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "hevc8",
+   "file_off": "0x3c4f04",
+   "va": "0xffffffc0013c4f04",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102300: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3a1af0",
+   "va": "0xffffffc0013a1af0",
+   "old": "0000000001000000",
+   "new": "0200000006000000",
+   "note": "descriptor #405 (HEVC 4:2:2 10-bit, 50p, key 101503): enable dual-core flags",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3a1b30",
+   "va": "0xffffffc0013a1b30",
+   "old": "000001000000000f7008",
+   "new": "020001000000000f000a",
+   "note": "descriptor #405 (HEVC 4:2:2 10-bit, 50p, key 101503): UseCore=2 + height 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c507e",
+   "va": "0xffffffc0013c507e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101503: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c50b0",
+   "va": "0xffffffc0013c50b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101503: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c5104",
+   "va": "0xffffffc0013c5104",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101503: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c50ce",
+   "va": "0xffffffc0013c50ce",
+   "old": "0000",
+   "new": "0005",
+   "note": "profile key 101503: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "p50",
+   "file_off": "0x3c5116",
+   "va": "0xffffffc0013c5116",
+   "old": "99",
+   "new": "b4",
+   "note": "profile key 101503: HEVC level 153 -> 180",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x3a1bc8",
+   "va": "0xffffffc0013a1bc8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #406 (HEVC 4:2:2 10-bit, 23.98p, key 101702, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3c517e",
+   "va": "0xffffffc0013c517e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101702: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3c51b0",
+   "va": "0xffffffc0013c51b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101702: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3c5204",
+   "va": "0xffffffc0013c5204",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101702: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x3a1c58",
+   "va": "0xffffffc0013a1c58",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #407 (HEVC 4:2:0 10-bit, 25p, key 101901, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3c527e",
+   "va": "0xffffffc0013c527e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101901: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3c52b0",
+   "va": "0xffffffc0013c52b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101901: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3c5304",
+   "va": "0xffffffc0013c5304",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101901: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x3a1ce8",
+   "va": "0xffffffc0013a1ce8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #408 (HEVC 4:2:0 10-bit, 23.98p, key 102000, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3c537e",
+   "va": "0xffffffc0013c537e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102000: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3c53b0",
+   "va": "0xffffffc0013c53b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102000: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3c5404",
+   "va": "0xffffffc0013c5404",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102000: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x3a1f28",
+   "va": "0xffffffc0013a1f28",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #412 (HEVC 4:2:0 10-bit, 25p, key 101909, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c577e",
+   "va": "0xffffffc0013c577e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101909: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c57b0",
+   "va": "0xffffffc0013c57b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101909: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c5804",
+   "va": "0xffffffc0013c5804",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101909: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c57ce",
+   "va": "0xffffffc0013c57ce",
+   "old": "4004",
+   "new": "0005",
+   "note": "profile key 101909: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x3a1fb8",
+   "va": "0xffffffc0013a1fb8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #413 (HEVC 4:2:0 10-bit, 23.98p, key 102004, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c587e",
+   "va": "0xffffffc0013c587e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102004: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c58b0",
+   "va": "0xffffffc0013c58b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102004: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c5904",
+   "va": "0xffffffc0013c5904",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102004: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c58ce",
+   "va": "0xffffffc0013c58ce",
+   "old": "4004",
+   "new": "0005",
+   "note": "profile key 102004: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x3a2558",
+   "va": "0xffffffc0013a2558",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #423 (HEVC 4:2:2 10-bit, 50p, key 101519, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c627e",
+   "va": "0xffffffc0013c627e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101519: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c62b0",
+   "va": "0xffffffc0013c62b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101519: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c6304",
+   "va": "0xffffffc0013c6304",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101519: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c62ce",
+   "va": "0xffffffc0013c62ce",
+   "old": "4004",
+   "new": "0005",
+   "note": "profile key 101519: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "sq120",
+   "file_off": "0x3c6316",
+   "va": "0xffffffc0013c6316",
+   "old": "99",
+   "new": "b4",
+   "note": "profile key 101519: HEVC level 153 -> 180",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x3a25e8",
+   "va": "0xffffffc0013a25e8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #424 (HEVC 4:2:2 10-bit, 23.98p, key 101706, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c637e",
+   "va": "0xffffffc0013c637e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101706: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c63b0",
+   "va": "0xffffffc0013c63b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101706: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c6404",
+   "va": "0xffffffc0013c6404",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101706: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c63ce",
+   "va": "0xffffffc0013c63ce",
+   "old": "4004",
+   "new": "0005",
+   "note": "profile key 101706: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x3a2828",
+   "va": "0xffffffc0013a2828",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #428 (HEVC 4:2:2 10-bit, 25p, key 101609, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3c677e",
+   "va": "0xffffffc0013c677e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101609: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3c67b0",
+   "va": "0xffffffc0013c67b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101609: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3c6804",
+   "va": "0xffffffc0013c6804",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101609: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x3a2948",
+   "va": "0xffffffc0013a2948",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #430 (HEVC 4:2:2 10-bit, 25p, key 101615, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c697e",
+   "va": "0xffffffc0013c697e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101615: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c69b0",
+   "va": "0xffffffc0013c69b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101615: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c6a04",
+   "va": "0xffffffc0013c6a04",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101615: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c69ce",
+   "va": "0xffffffc0013c69ce",
+   "old": "4004",
+   "new": "0005",
+   "note": "profile key 101615: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3a2ab0",
+   "va": "0xffffffc0013a2ab0",
+   "old": "0000000001000000",
+   "new": "0200000006000000",
+   "note": "descriptor #433 (HEVC 4:2:0 10-bit, 50p, key 101801): enable dual-core flags",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3a2af0",
+   "va": "0xffffffc0013a2af0",
+   "old": "000001000000000f7008",
+   "new": "020001000000000f000a",
+   "note": "descriptor #433 (HEVC 4:2:0 10-bit, 50p, key 101801): UseCore=2 + height 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c6c7e",
+   "va": "0xffffffc0013c6c7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101801: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c6cb0",
+   "va": "0xffffffc0013c6cb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101801: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c6d04",
+   "va": "0xffffffc0013c6d04",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101801: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c6cce",
+   "va": "0xffffffc0013c6cce",
+   "old": "0000",
+   "new": "0005",
+   "note": "profile key 101801: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "p50",
+   "file_off": "0x3c6d16",
+   "va": "0xffffffc0013c6d16",
+   "old": "99",
+   "new": "b4",
+   "note": "profile key 101801: HEVC level 153 -> 180",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3a2b40",
+   "va": "0xffffffc0013a2b40",
+   "old": "0000000001000000",
+   "new": "0200000006000000",
+   "note": "descriptor #434 (HEVC 4:2:0 8-bit, 50p, key 102101): enable dual-core flags",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3a2b80",
+   "va": "0xffffffc0013a2b80",
+   "old": "000001000000000f7008",
+   "new": "020001000000000f000a",
+   "note": "descriptor #434 (HEVC 4:2:0 8-bit, 50p, key 102101): UseCore=2 + height 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c6d7e",
+   "va": "0xffffffc0013c6d7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102101: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c6db0",
+   "va": "0xffffffc0013c6db0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102101: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c6e04",
+   "va": "0xffffffc0013c6e04",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102101: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c6dce",
+   "va": "0xffffffc0013c6dce",
+   "old": "0000",
+   "new": "0005",
+   "note": "profile key 102101: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "p50",
+   "file_off": "0x3c6e16",
+   "va": "0xffffffc0013c6e16",
+   "old": "99",
+   "new": "b4",
+   "note": "profile key 102101: HEVC level 153 -> 180",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x3a2ca8",
+   "va": "0xffffffc0013a2ca8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #436 (HEVC 4:2:0 10-bit, 50p, key 101815, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c6f7e",
+   "va": "0xffffffc0013c6f7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101815: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c6fb0",
+   "va": "0xffffffc0013c6fb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101815: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c7004",
+   "va": "0xffffffc0013c7004",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101815: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c6fce",
+   "va": "0xffffffc0013c6fce",
+   "old": "4004",
+   "new": "0005",
+   "note": "profile key 101815: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "sq120",
+   "file_off": "0x3c7016",
+   "va": "0xffffffc0013c7016",
+   "old": "99",
+   "new": "b4",
+   "note": "profile key 101815: HEVC level 153 -> 180",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3a30e0",
+   "va": "0xffffffc0013a30e0",
+   "old": "0000000001000000",
+   "new": "0200000006000000",
+   "note": "descriptor #444 (HEVC 4:2:2 10-bit, 50p, key 101515): enable dual-core flags",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3a3120",
+   "va": "0xffffffc0013a3120",
+   "old": "000001000000000f7008",
+   "new": "020001000000000f000a",
+   "note": "descriptor #444 (HEVC 4:2:2 10-bit, 50p, key 101515): UseCore=2 + height 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c777e",
+   "va": "0xffffffc0013c777e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101515: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c77b0",
+   "va": "0xffffffc0013c77b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101515: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c7804",
+   "va": "0xffffffc0013c7804",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101515: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c77ce",
+   "va": "0xffffffc0013c77ce",
+   "old": "0000",
+   "new": "0005",
+   "note": "profile key 101515: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "p50",
+   "file_off": "0x3c7816",
+   "va": "0xffffffc0013c7816",
+   "old": "99",
+   "new": "b4",
+   "note": "profile key 101515: HEVC level 153 -> 180",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x3a3518",
+   "va": "0xffffffc0013a3518",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #451 (HEVC 4:2:2 10-bit, 50p, key 101521, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c7e7e",
+   "va": "0xffffffc0013c7e7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101521: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c7eb0",
+   "va": "0xffffffc0013c7eb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101521: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c7f04",
+   "va": "0xffffffc0013c7f04",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101521: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c7ece",
+   "va": "0xffffffc0013c7ece",
+   "old": "4004",
+   "new": "0005",
+   "note": "profile key 101521: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "sq120",
+   "file_off": "0x3c7f16",
+   "va": "0xffffffc0013c7f16",
+   "old": "99",
+   "new": "b4",
+   "note": "profile key 101521: HEVC level 153 -> 180",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3a41c0",
+   "va": "0xffffffc0013a41c0",
+   "old": "0000000001000000",
+   "new": "0200000006000000",
+   "note": "descriptor #474 (HEVC 4:2:0 8-bit, 50p, key 102107): enable dual-core flags",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3a4200",
+   "va": "0xffffffc0013a4200",
+   "old": "000001000000000f7008",
+   "new": "020001000000000f000a",
+   "note": "descriptor #474 (HEVC 4:2:0 8-bit, 50p, key 102107): UseCore=2 + height 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c957e",
+   "va": "0xffffffc0013c957e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102107: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c95b0",
+   "va": "0xffffffc0013c95b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102107: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c9604",
+   "va": "0xffffffc0013c9604",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102107: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c95ce",
+   "va": "0xffffffc0013c95ce",
+   "old": "0000",
+   "new": "0005",
+   "note": "profile key 102107: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "p50",
+   "file_off": "0x3c9616",
+   "va": "0xffffffc0013c9616",
+   "old": "99",
+   "new": "b4",
+   "note": "profile key 102107: HEVC level 153 -> 180",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x3a4328",
+   "va": "0xffffffc0013a4328",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #476 (HEVC 4:2:0 10-bit, 50p, key 101819, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c977e",
+   "va": "0xffffffc0013c977e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101819: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c97b0",
+   "va": "0xffffffc0013c97b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101819: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c9804",
+   "va": "0xffffffc0013c9804",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101819: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c97ce",
+   "va": "0xffffffc0013c97ce",
+   "old": "4004",
+   "new": "0005",
+   "note": "profile key 101819: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "sq120",
+   "file_off": "0x3c9816",
+   "va": "0xffffffc0013c9816",
+   "old": "99",
+   "new": "b4",
+   "note": "profile key 101819: HEVC level 153 -> 180",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3a4400",
+   "va": "0xffffffc0013a4400",
+   "old": "0000000001000000",
+   "new": "0200000006000000",
+   "note": "descriptor #478 (HEVC 4:2:0 10-bit, 50p, key 101821): enable dual-core flags",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3a4440",
+   "va": "0xffffffc0013a4440",
+   "old": "000001000000000f7008",
+   "new": "020001000000000f000a",
+   "note": "descriptor #478 (HEVC 4:2:0 10-bit, 50p, key 101821): UseCore=2 + height 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c997e",
+   "va": "0xffffffc0013c997e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101821: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c99b0",
+   "va": "0xffffffc0013c99b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101821: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c9a04",
+   "va": "0xffffffc0013c9a04",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101821: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3c99ce",
+   "va": "0xffffffc0013c99ce",
+   "old": "0000",
+   "new": "0005",
+   "note": "profile key 101821: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "p50",
+   "file_off": "0x3c9a16",
+   "va": "0xffffffc0013c9a16",
+   "old": "99",
+   "new": "b4",
+   "note": "profile key 101821: HEVC level 153 -> 180",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x3a4568",
+   "va": "0xffffffc0013a4568",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #480 (HEVC 4:2:2 10-bit, 25p, key 101607, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3c9b7e",
+   "va": "0xffffffc0013c9b7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101607: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3c9bb0",
+   "va": "0xffffffc0013c9bb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101607: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3c9c04",
+   "va": "0xffffffc0013c9c04",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101607: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x3a45f8",
+   "va": "0xffffffc0013a45f8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #481 (HEVC 4:2:2 10-bit, 23.98p, key 101703, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3c9c7e",
+   "va": "0xffffffc0013c9c7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101703: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3c9cb0",
+   "va": "0xffffffc0013c9cb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101703: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3c9d04",
+   "va": "0xffffffc0013c9d04",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101703: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x3a4718",
+   "va": "0xffffffc0013a4718",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #483 (HEVC 4:2:2 10-bit, 25p, key 101613, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c9e7e",
+   "va": "0xffffffc0013c9e7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101613: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c9eb0",
+   "va": "0xffffffc0013c9eb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101613: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c9f04",
+   "va": "0xffffffc0013c9f04",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101613: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c9ece",
+   "va": "0xffffffc0013c9ece",
+   "old": "4004",
+   "new": "0005",
+   "note": "profile key 101613: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x3a47a8",
+   "va": "0xffffffc0013a47a8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #484 (HEVC 4:2:2 10-bit, 23.98p, key 101707, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c9f7e",
+   "va": "0xffffffc0013c9f7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101707: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c9fb0",
+   "va": "0xffffffc0013c9fb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101707: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3ca004",
+   "va": "0xffffffc0013ca004",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101707: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3c9fce",
+   "va": "0xffffffc0013c9fce",
+   "old": "4004",
+   "new": "0005",
+   "note": "profile key 101707: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "hevc8",
+   "file_off": "0x3a5528",
+   "va": "0xffffffc0013a5528",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #508 (HEVC 4:2:0 8-bit, 25p, key 102205, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "hevc8",
+   "file_off": "0x3cb77e",
+   "va": "0xffffffc0013cb77e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102205: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "hevc8",
+   "file_off": "0x3cb7b0",
+   "va": "0xffffffc0013cb7b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102205: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "hevc8",
+   "file_off": "0x3cb804",
+   "va": "0xffffffc0013cb804",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102205: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "hevc8",
+   "file_off": "0x3a55b8",
+   "va": "0xffffffc0013a55b8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #509 (HEVC 4:2:0 8-bit, 23.98p, key 102302, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "hevc8",
+   "file_off": "0x3cb87e",
+   "va": "0xffffffc0013cb87e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102302: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "hevc8",
+   "file_off": "0x3cb8b0",
+   "va": "0xffffffc0013cb8b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102302: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "hevc8",
+   "file_off": "0x3cb904",
+   "va": "0xffffffc0013cb904",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102302: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x3a56d8",
+   "va": "0xffffffc0013a56d8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #511 (HEVC 4:2:0 10-bit, 25p, key 101907, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3cba7e",
+   "va": "0xffffffc0013cba7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101907: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3cbab0",
+   "va": "0xffffffc0013cbab0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101907: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3cbb04",
+   "va": "0xffffffc0013cbb04",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101907: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x3a5768",
+   "va": "0xffffffc0013a5768",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #512 (HEVC 4:2:0 10-bit, 23.98p, key 102003, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3cbb7e",
+   "va": "0xffffffc0013cbb7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102003: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3cbbb0",
+   "va": "0xffffffc0013cbbb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102003: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3cbc04",
+   "va": "0xffffffc0013cbc04",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102003: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x3a5888",
+   "va": "0xffffffc0013a5888",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #514 (HEVC 4:2:0 10-bit, 25p, key 101913, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cbd7e",
+   "va": "0xffffffc0013cbd7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101913: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cbdb0",
+   "va": "0xffffffc0013cbdb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101913: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cbe04",
+   "va": "0xffffffc0013cbe04",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101913: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cbdce",
+   "va": "0xffffffc0013cbdce",
+   "old": "4004",
+   "new": "0005",
+   "note": "profile key 101913: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x3a5918",
+   "va": "0xffffffc0013a5918",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #515 (HEVC 4:2:0 10-bit, 23.98p, key 102006, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cbe7e",
+   "va": "0xffffffc0013cbe7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102006: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cbeb0",
+   "va": "0xffffffc0013cbeb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102006: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cbf04",
+   "va": "0xffffffc0013cbf04",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102006: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cbece",
+   "va": "0xffffffc0013cbece",
+   "old": "4004",
+   "new": "0005",
+   "note": "profile key 102006: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "hevc8",
+   "file_off": "0x3a5a38",
+   "va": "0xffffffc0013a5a38",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #517 (HEVC 4:2:0 8-bit, 25p, key 102204, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "hevc8",
+   "file_off": "0x3cc07e",
+   "va": "0xffffffc0013cc07e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102204: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "hevc8",
+   "file_off": "0x3cc0b0",
+   "va": "0xffffffc0013cc0b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102204: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "hevc8",
+   "file_off": "0x3cc104",
+   "va": "0xffffffc0013cc104",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102204: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "hevc8",
+   "file_off": "0x3a5ac8",
+   "va": "0xffffffc0013a5ac8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #518 (HEVC 4:2:0 8-bit, 23.98p, key 102301, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "hevc8",
+   "file_off": "0x3cc17e",
+   "va": "0xffffffc0013cc17e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102301: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "hevc8",
+   "file_off": "0x3cc1b0",
+   "va": "0xffffffc0013cc1b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102301: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "hevc8",
+   "file_off": "0x3cc204",
+   "va": "0xffffffc0013cc204",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102301: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x3a5be8",
+   "va": "0xffffffc0013a5be8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #520 (HEVC 4:2:0 10-bit, 25p, key 101905, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3cc37e",
+   "va": "0xffffffc0013cc37e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101905: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3cc3b0",
+   "va": "0xffffffc0013cc3b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101905: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3cc404",
+   "va": "0xffffffc0013cc404",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101905: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x3a5c78",
+   "va": "0xffffffc0013a5c78",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #521 (HEVC 4:2:0 10-bit, 23.98p, key 102002, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3cc47e",
+   "va": "0xffffffc0013cc47e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102002: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3cc4b0",
+   "va": "0xffffffc0013cc4b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102002: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3cc504",
+   "va": "0xffffffc0013cc504",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102002: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x3a6578",
+   "va": "0xffffffc0013a6578",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #537 (HEVC 4:2:2 10-bit, 23.98p, key 101705, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3cd47e",
+   "va": "0xffffffc0013cd47e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101705: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3cd4b0",
+   "va": "0xffffffc0013cd4b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101705: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3cd504",
+   "va": "0xffffffc0013cd504",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101705: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x3a6698",
+   "va": "0xffffffc0013a6698",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #539 (HEVC 4:2:0 10-bit, 25p, key 101911, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cd67e",
+   "va": "0xffffffc0013cd67e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101911: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cd6b0",
+   "va": "0xffffffc0013cd6b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101911: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cd704",
+   "va": "0xffffffc0013cd704",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101911: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cd6ce",
+   "va": "0xffffffc0013cd6ce",
+   "old": "4004",
+   "new": "0005",
+   "note": "profile key 101911: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x3a6728",
+   "va": "0xffffffc0013a6728",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #540 (HEVC 4:2:0 10-bit, 23.98p, key 102005, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cd77e",
+   "va": "0xffffffc0013cd77e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102005: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cd7b0",
+   "va": "0xffffffc0013cd7b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102005: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cd804",
+   "va": "0xffffffc0013cd804",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102005: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cd7ce",
+   "va": "0xffffffc0013cd7ce",
+   "old": "4004",
+   "new": "0005",
+   "note": "profile key 102005: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x3a6c38",
+   "va": "0xffffffc0013a6c38",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #549 (HEVC 4:2:2 10-bit, 23.98p, key 101708, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3ce07e",
+   "va": "0xffffffc0013ce07e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101708: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3ce0b0",
+   "va": "0xffffffc0013ce0b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101708: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3ce104",
+   "va": "0xffffffc0013ce104",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101708: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3ce0ce",
+   "va": "0xffffffc0013ce0ce",
+   "old": "4004",
+   "new": "0005",
+   "note": "profile key 101708: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3a6f50",
+   "va": "0xffffffc0013a6f50",
+   "old": "0000000001000000",
+   "new": "0200000006000000",
+   "note": "descriptor #555 (HEVC 4:2:2 10-bit, 50p, key 101517): enable dual-core flags",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3a6f90",
+   "va": "0xffffffc0013a6f90",
+   "old": "000001000000000f7008",
+   "new": "020001000000000f000a",
+   "note": "descriptor #555 (HEVC 4:2:2 10-bit, 50p, key 101517): UseCore=2 + height 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3ce67e",
+   "va": "0xffffffc0013ce67e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101517: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3ce6b0",
+   "va": "0xffffffc0013ce6b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101517: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3ce704",
+   "va": "0xffffffc0013ce704",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101517: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3ce6ce",
+   "va": "0xffffffc0013ce6ce",
+   "old": "0000",
+   "new": "0005",
+   "note": "profile key 101517: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "p50",
+   "file_off": "0x3ce716",
+   "va": "0xffffffc0013ce716",
+   "old": "99",
+   "new": "b4",
+   "note": "profile key 101517: HEVC level 153 -> 180",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x3a72f8",
+   "va": "0xffffffc0013a72f8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #561 (HEVC 4:2:2 10-bit, 50p, key 101523, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cec7e",
+   "va": "0xffffffc0013cec7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101523: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cecb0",
+   "va": "0xffffffc0013cecb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101523: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3ced04",
+   "va": "0xffffffc0013ced04",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101523: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cecce",
+   "va": "0xffffffc0013cecce",
+   "old": "4004",
+   "new": "0005",
+   "note": "profile key 101523: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "sq120",
+   "file_off": "0x3ced16",
+   "va": "0xffffffc0013ced16",
+   "old": "99",
+   "new": "b4",
+   "note": "profile key 101523: HEVC level 153 -> 180",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "builder",
+   "file_off": "0x3a7418",
+   "va": "0xffffffc0013a7418",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #563 (HEVC 4:2:2 10-bit, 25p, key 101611, f0c=0): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3cee7e",
+   "va": "0xffffffc0013cee7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101611: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3ceeb0",
+   "va": "0xffffffc0013ceeb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101611: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "builder",
+   "file_off": "0x3cef04",
+   "va": "0xffffffc0013cef04",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101611: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x3a7898",
+   "va": "0xffffffc0013a7898",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #571 (HEVC 4:2:2 10-bit, 25p, key 101617, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cf67e",
+   "va": "0xffffffc0013cf67e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101617: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cf6b0",
+   "va": "0xffffffc0013cf6b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101617: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cf704",
+   "va": "0xffffffc0013cf704",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101617: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cf6ce",
+   "va": "0xffffffc0013cf6ce",
+   "old": "4004",
+   "new": "0005",
+   "note": "profile key 101617: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3a7970",
+   "va": "0xffffffc0013a7970",
+   "old": "0000000001000000",
+   "new": "0200000006000000",
+   "note": "descriptor #573 (HEVC 4:2:0 10-bit, 50p, key 101805): enable dual-core flags",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3a79b0",
+   "va": "0xffffffc0013a79b0",
+   "old": "000001000000000f7008",
+   "new": "020001000000000f000a",
+   "note": "descriptor #573 (HEVC 4:2:0 10-bit, 50p, key 101805): UseCore=2 + height 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3cf87e",
+   "va": "0xffffffc0013cf87e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101805: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3cf8b0",
+   "va": "0xffffffc0013cf8b0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101805: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3cf904",
+   "va": "0xffffffc0013cf904",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101805: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3cf8ce",
+   "va": "0xffffffc0013cf8ce",
+   "old": "0000",
+   "new": "0005",
+   "note": "profile key 101805: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "p50",
+   "file_off": "0x3cf916",
+   "va": "0xffffffc0013cf916",
+   "old": "99",
+   "new": "b4",
+   "note": "profile key 101805: HEVC level 153 -> 180",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3a7a90",
+   "va": "0xffffffc0013a7a90",
+   "old": "0000000001000000",
+   "new": "0200000006000000",
+   "note": "descriptor #575 (HEVC 4:2:0 8-bit, 50p, key 102105): enable dual-core flags",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "p50",
+   "file_off": "0x3a7ad0",
+   "va": "0xffffffc0013a7ad0",
+   "old": "000001000000000f7008",
+   "new": "020001000000000f000a",
+   "note": "descriptor #575 (HEVC 4:2:0 8-bit, 50p, key 102105): UseCore=2 + height 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3cfa7e",
+   "va": "0xffffffc0013cfa7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102105: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3cfab0",
+   "va": "0xffffffc0013cfab0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 102105: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3cfb04",
+   "va": "0xffffffc0013cfb04",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 102105: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "p50",
+   "file_off": "0x3cface",
+   "va": "0xffffffc0013cface",
+   "old": "0000",
+   "new": "0005",
+   "note": "profile key 102105: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "p50",
+   "file_off": "0x3cfb16",
+   "va": "0xffffffc0013cfb16",
+   "old": "99",
+   "new": "b4",
+   "note": "profile key 102105: HEVC level 153 -> 180",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A1-desc",
+   "part": "sq120",
+   "file_off": "0x3a7bf8",
+   "va": "0xffffffc0013a7bf8",
+   "old": "7008",
+   "new": "000a",
+   "note": "descriptor #577 (HEVC 4:2:0 10-bit, 50p, key 101817, f0c=2): height 2160 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cfc7e",
+   "va": "0xffffffc0013cfc7e",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101817: raster height +0x06 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cfcb0",
+   "va": "0xffffffc0013cfcb0",
+   "old": "70080000",
+   "new": "000a0000",
+   "note": "profile key 101817: raster height +0x38 -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cfd04",
+   "va": "0xffffffc0013cfd04",
+   "old": "7008",
+   "new": "000a",
+   "note": "profile key 101817: HEVC height +0x8c -> 2560",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-profile",
+   "part": "sq120",
+   "file_off": "0x3cfcce",
+   "va": "0xffffffc0013cfcce",
+   "old": "4004",
+   "new": "0005",
+   "note": "profile key 101817: dual-core rows_first_core +0x56 -> 1280 (2560/2)",
+   "code": false
+  },
+  {
+   "binary": "av-cam.bin",
+   "kind": "A2-level",
+   "part": "sq120",
+   "file_off": "0x3cfd16",
+   "va": "0xffffffc0013cfd16",
+   "old": "99",
+   "new": "b4",
+   "note": "profile key 101817: HEVC level 153 -> 180",
+   "code": false
+  }
+ ],
+ "optional_sites": [],
+ "libmpr_code_guards": [
+  {
+   "site": "0x15e4e4",
+   "guards": [
+    {
+     "file_off": "0x15e4dc",
+     "bytes": "c0035fd6"
+    },
+    {
+     "file_off": "0x15e4e0",
+     "bytes": "3fc02171"
+    },
+    {
+     "file_off": "0x15e4e8",
+     "bytes": "7f003c71"
+    },
+    {
+     "file_off": "0x15e4ec",
+     "bytes": "faffff17"
+    },
+    {
+     "file_off": "0x1ec1b0",
+     "bytes": "43018052"
+    },
+    {
+     "file_off": "0x1ec1b4",
+     "bytes": "44008052"
+    },
+    {
+     "file_off": "0x1ec1bc",
+     "bytes": "06e08152"
+    },
+    {
+     "file_off": "0x1ec1c0",
+     "bytes": "f8ffff17"
+    },
+    {
+     "file_off": "0x1ec2e0",
+     "bytes": "43018052"
+    },
+    {
+     "file_off": "0x1ec2e4",
+     "bytes": "24008052"
+    },
+    {
+     "file_off": "0x1ec2ec",
+     "bytes": "06e08152"
+    },
+    {
+     "file_off": "0x1ec2f0",
+     "bytes": "beffff17"
+    }
+   ]
+  },
+  {
+   "site": "0x1ec1b8",
+   "guards": []
+  },
+  {
+   "site": "0x1ec2e8",
+   "guards": []
+  }
+ ]
+}

@@ -1,0 +1,148 @@
+{
+ "design": "lcdfill_a6700_v2",
+ "build": "a6700_200",
+ "camera": "ILCE-6700 (A6700), firmware 2.00",
+ "title": "Rear screen (LCD) at 3:2 in movie mode with the focus frames: VDF fills the 3:2 panel with the 16:9 live view, and the two frame widgets expect the live view there (A6700 2.00)",
+ "kind": "ram_words",
+ "artifact": "cpapp-b.bin 2.00 (ILCE-6700), its loaded image in coprocessor RAM: the words are in the file, the change is made in RAM only",
+ "artifact_sha256": "61b7fe5c0ce227ea865d799b81fe77ae359b7c5dcd39d13c9c2241d9cad23559",
+ "generated_by": "build/build_lcd_a6700.py",
+ "checked_in_the_image": {
+  "layout_calls": [
+   "0x6b9a5e",
+   "0x1f5f48",
+   "0x6ba32a",
+   "0x6ced2e",
+   "0x6ba392",
+   "0x1f6170"
+  ],
+  "panel_code_by_type": {
+   "1": 2,
+   "2": 0,
+   "3": 1
+  },
+  "appfw_has_desqueeze_setting": false
+ },
+ "ported_from": {
+  "design": "lcdfill_v2",
+  "build": "a7iv_602",
+  "note": "works on an A7 IV (F791, F969); the ZV-E1's lcdfill_zv_v2 is the same two-table form"
+ },
+ "contributed": "the 5 sites equal the contributed lcdfill_a6700_v2's (work/contrib/a6700_v1.0), and each of its 7 guards is covered by one of these 10 (same address, the same bytes; its 8-byte guard at 0x1f61a4 is 16 bytes here)",
+ "table": "VDF fit-mode table 0x1f5f98 (function 0x1f5f48 = A7 IV 0x1e4b78) and the frame widgets' rectangle tables 0xe99e30 (cpActAfWindow) and 0xe99e90 (cpActTrackingFrame): 3 rows x 4 aspect columns, entry row 1 (rear 3:2 panel), column 3 (16:9)",
+ "summary": {
+  "sites": 5,
+  "bytes": 20,
+  "guards": 10,
+  "panel": "rear LCD, 3:2 (panel code 1 from type byte 3 at RAM 0x1a7c0e0, expected)",
+  "picture": "16:9 live view (picture code 2)",
+  "fit_stock": "letterbox (3)",
+  "fit_new": "fill (0)",
+  "frame_rectangle_stock": [
+   0,
+   38,
+   640,
+   404
+  ],
+  "frame_rectangle_new": [
+   0,
+   0,
+   640,
+   480
+  ],
+  "viewfinder": "unchanged: a 4:3 panel (panel code 0) keeps the 16:9 letterbox and shows the squeezed frame, as on the A7 IV",
+  "goes_with": [
+   "the A6700 open-gate state"
+  ]
+ },
+ "while_applied": "every 16:9 picture on the rear screen is stretched over the 3:2 panel (other movie formats and 16:9 playback look wrong there until the step is put back); the viewfinder and HDMI are unchanged",
+ "not_shown": [
+  "anything on a camera by us (the contributor reports the rear screen filled with working focus and tracking frames)",
+  "the rear panel type byte 0x1a7c0e0 (expected 3 = 3:2 from Sony's 1,036,800 dots = 720 x 480; a dump should read it): if it says 2 (4:3) the fit word is not read and the screen stays letterboxed, as on the A7S III with lcdfill_s3_v1",
+  "that the frame widgets use row 1 on this body (a model word; carried over from the A7 IV)"
+ ],
+ "sites": [
+  {
+   "ram_address": "0x1f5f9c",
+   "old": "03000000",
+   "new": "00000000",
+   "note": "VDF fit mode for a 16:9 picture on a 3:2 panel (table 0x1f5f98 for picture code 2, entry for panel code 1): 3 letterbox to 0 fill. The rear screen then stretches the 16:9 live view over the whole 3:2 panel [A7 IV 0x1e4bcc]"
+  },
+  {
+   "ram_address": "0xe99e68",
+   "old": "00002600",
+   "new": "00000000",
+   "note": "cpActAfWindow (focus area frames), check 0x128438: expected live-view rectangle for a 16:9 picture on the rear 3:2 panel (row 1, column 3), x, y: stock (0, 38, 640, 404) to (0, 0, 640, 480)"
+  },
+  {
+   "ram_address": "0xe99e6c",
+   "old": "80029401",
+   "new": "8002e001",
+   "note": "cpActAfWindow (focus area frames), check 0x128438: expected live-view rectangle for a 16:9 picture on the rear 3:2 panel (row 1, column 3), w, h: stock (0, 38, 640, 404) to (0, 0, 640, 480)"
+  },
+  {
+   "ram_address": "0xe99ec8",
+   "old": "00002600",
+   "new": "00000000",
+   "note": "cpActTrackingFrame (tracking and face frames), check 0x129288: expected live-view rectangle for a 16:9 picture on the rear 3:2 panel (row 1, column 3), x, y: stock (0, 38, 640, 404) to (0, 0, 640, 480)"
+  },
+  {
+   "ram_address": "0xe99ecc",
+   "old": "80029401",
+   "new": "8002e001",
+   "note": "cpActTrackingFrame (tracking and face frames), check 0x129288: expected live-view rectangle for a 16:9 picture on the rear 3:2 panel (row 1, column 3), w, h: stock (0, 38, 640, 404) to (0, 0, 640, 480)"
+  }
+ ],
+ "guards": [
+  {
+   "ram_address": "0x1f5f48",
+   "bytes": "02468a4201d1002070470020052918d8",
+   "note": "first 16 bytes of the fit-mode function 0x1f5f48 [A7 IV 0x1e4b78], as in the file"
+  },
+  {
+   "ram_address": "0x1f5f88",
+   "bytes": "022070470020032a38bf0320704700bf",
+   "note": "last 16 bytes of the fit-mode function before its tables [A7 IV 0x1e4bb8], as in the file"
+  },
+  {
+   "ram_address": "0x1f5f98",
+   "bytes": "03000000",
+   "note": "picture code 2 (16:9), panel code 0 (4:3): 3 letterbox (the viewfinder's entry, left alone), as in the file"
+  },
+  {
+   "ram_address": "0x1f5fa0",
+   "bytes": "00000000000000000000000002000000",
+   "note": "picture code 2, panel codes 2 to 5: 0, 0, 0, 2, as in the file"
+  },
+  {
+   "ram_address": "0x1f5fb0",
+   "bytes": "03000000000000000200000000000000",
+   "note": "the table for picture code 1 (3:2), panel codes 0 to 3: 3, 0, 2, 0, as in the file"
+  },
+  {
+   "ram_address": "0x1f61a4",
+   "bytes": "4ff0090e08bf102007e001204ff0010e",
+   "note": "the picture-ratio function's 16:9 constants (moveq.w lr, #9; it eq; moveq r0, #16) and the 1:1 case, as in the file"
+  },
+  {
+   "ram_address": "0xe99e60",
+   "bytes": "6b000000aa01e001",
+   "note": "cpActAfWindow: the entry before (1:1 on the rear 3:2 panel: 107, 0, 426, 480), as in the file"
+  },
+  {
+   "ram_address": "0xe99e70",
+   "bytes": "00001a008002ac01",
+   "note": "cpActAfWindow: the entry after (row 2, a 3:2 picture: 0, 26, 640, 428), as in the file"
+  },
+  {
+   "ram_address": "0xe99ec0",
+   "bytes": "6b000000aa01e001",
+   "note": "cpActTrackingFrame: the entry before (1:1 on the rear 3:2 panel: 107, 0, 426, 480), as in the file"
+  },
+  {
+   "ram_address": "0xe99ed0",
+   "bytes": "00001a008002ac01",
+   "note": "cpActTrackingFrame: the entry after (row 2, a 3:2 picture: 0, 26, 640, 428), as in the file"
+  }
+ ]
+}

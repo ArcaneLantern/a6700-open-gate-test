@@ -1,0 +1,246 @@
+{
+ "about": "Where the A6700 2.00 screen designs may have a site, and where only a guard (cpapp-b.bin addresses; build/build_lcd_a6700.py, modding/A6700_PORT_SCREEN.md). Read by helper_a6700/gen_a6700_write.py as gen_fx2_write.py reads lcd_regions_fx2.json.",
+ "lcdfill_a6700_v2": {
+  "sites": [
+   [
+    "0x1f5f98",
+    "0x1f5fb0"
+   ],
+   [
+    "0xe99e30",
+    "0xe99e90"
+   ],
+   [
+    "0xe99e90",
+    "0xe99ef0"
+   ]
+  ],
+  "sites_note": "the fit words of a 16:9 picture (the site is 0x1f5f9c); the two frame tables (cpActAfWindow 0xe99e30, cpActTrackingFrame 0xe99e90)",
+  "guards": [
+   [
+    "0x1f5f48",
+    "0x1f5fdc"
+   ],
+   [
+    "0x1f6170",
+    "0x1f6272"
+   ]
+  ],
+  "guards_note": "a guard may also lie in the fit-mode function with its tables or in the picture-ratio function"
+ },
+ "lcdfill_a6700_v3": {
+  "sites": [
+   [
+    "0x1f5f98",
+    "0x1f5fb0"
+   ],
+   [
+    "0x1f61a4",
+    "0x1f61ac"
+   ],
+   [
+    "0xe99e30",
+    "0xe99e90"
+   ],
+   [
+    "0xe99e90",
+    "0xe99ef0"
+   ]
+  ],
+  "sites_note": "v2's regions and the two words holding the ratio function's 16:9 constants",
+  "guards": [
+   [
+    "0x1f5f48",
+    "0x1f5fdc"
+   ],
+   [
+    "0x1f6170",
+    "0x1f6272"
+   ],
+   [
+    "0xe99ef0",
+    "0xe99ef8"
+   ]
+  ],
+  "guards_note": "as v2, and the zero bytes after the second table"
+ },
+ "dump_decoder": {
+  "about": "A6700 2.00 coprocessor RAM the read-only dump should copy and decode for the screen step. Panel type: 3 = 3:2, 2 = 4:3, 1 = 16:9 (type -> panel code 0x1f6a18, tables 0x1f6abc / 0xd04cdc: 3 -> 1, 2 -> 0, 1 -> 2).",
+  "panel_type_rear": "0x1a7c0e0",
+  "panel_type_rear_note": "byte [0x1a7c0c4 + 0x1c], read by 0x69ed42 (>= 4 counts as 1). Expected 3 (3:2): Sony gives the monitor as 1,036,800 dots = 720 x 480 x 3",
+  "panel_type_second": "0x1a7c210",
+  "panel_type_second_note": "byte [0x1a7c1f4 + 0x1c], read by 0x69ed54 (>= 2 counts as 2): the viewfinder. Expected 2 (4:3): 2,359,296 dots = 1024 x 768 x 3",
+  "panel_codes": {
+   "1": "16:9",
+   "2": "4:3",
+   "3": "3:2"
+  },
+  "pages": [
+   "0x1f5000",
+   "0x1f6000",
+   "0xe99000",
+   "0x1a7c000"
+  ],
+  "fit_words_169": [
+   "0x1f5f98",
+   "0x1f5f9c"
+  ],
+  "fit_words_note": "fit mode of a 16:9 picture on panel code 0 (4:3) and 1 (3:2): 3, 3 stock; the screen step sets the second to 0 (3 letterbox, 0 fill)",
+  "ratio_169": {
+   "address": "0x1f61a4",
+   "stock": "4ff0090e08bf1020",
+   "patched_v3": "4ff0020e08bf0320",
+   "note": "moveq.w lr, #9 / it eq; moveq r0, #16 -> #2 / #3 (v3 only)"
+  },
+  "frame_tables": {
+   "cpActAfWindow": "0xe99e30",
+   "cpActTrackingFrame": "0xe99e90"
+  },
+  "frame_table_layout": "3 rows (0 and 1 rear output: 1 on the 3:2 panel; 2 second output) x 4 aspect columns (3:2, 4:3, 1:1, 16:9) x (x, y, w, h) u16 on a 640 x 480 grid; the 16:9 column is entry 3: row r at table + 8 * (4 * r + 3)",
+  "frame_rows_169_stock": {
+   "0": [
+    0,
+    60,
+    640,
+    360
+   ],
+   "1": [
+    0,
+    38,
+    640,
+    404
+   ],
+   "2": [
+    0,
+    60,
+    640,
+    360
+   ]
+  },
+  "frame_rows_169_v2": {
+   "0": [
+    0,
+    60,
+    640,
+    360
+   ],
+   "1": [
+    0,
+    0,
+    640,
+    480
+   ],
+   "2": [
+    0,
+    60,
+    640,
+    360
+   ]
+  },
+  "frame_rows_169_v3": {
+   "0": [
+    0,
+    60,
+    640,
+    360
+   ],
+   "1": [
+    0,
+    0,
+    640,
+    480
+   ],
+   "2": [
+    0,
+    26,
+    640,
+    428
+   ]
+  },
+  "screen_words_v2": [
+   {
+    "address": "0x1f5f9c",
+    "stock": "03000000",
+    "new": "00000000"
+   },
+   {
+    "address": "0xe99e68",
+    "stock": "00002600",
+    "new": "00000000"
+   },
+   {
+    "address": "0xe99e6c",
+    "stock": "80029401",
+    "new": "8002e001"
+   },
+   {
+    "address": "0xe99ec8",
+    "stock": "00002600",
+    "new": "00000000"
+   },
+   {
+    "address": "0xe99ecc",
+    "stock": "80029401",
+    "new": "8002e001"
+   }
+  ],
+  "screen_words_v3": [
+   {
+    "address": "0x1f5f9c",
+    "stock": "03000000",
+    "new": "00000000"
+   },
+   {
+    "address": "0xe99e68",
+    "stock": "00002600",
+    "new": "00000000"
+   },
+   {
+    "address": "0xe99e6c",
+    "stock": "80029401",
+    "new": "8002e001"
+   },
+   {
+    "address": "0xe99ec8",
+    "stock": "00002600",
+    "new": "00000000"
+   },
+   {
+    "address": "0xe99ecc",
+    "stock": "80029401",
+    "new": "8002e001"
+   },
+   {
+    "address": "0x1f61a4",
+    "stock": "4ff0090e",
+    "new": "4ff0020e"
+   },
+   {
+    "address": "0x1f61a8",
+    "stock": "08bf1020",
+    "new": "08bf0320"
+   },
+   {
+    "address": "0xe99e88",
+    "stock": "00003c00",
+    "new": "00001a00"
+   },
+   {
+    "address": "0xe99e8c",
+    "stock": "80026801",
+    "new": "8002ac01"
+   },
+   {
+    "address": "0xe99ee8",
+    "stock": "00003c00",
+    "new": "00001a00"
+   },
+   {
+    "address": "0xe99eec",
+    "stock": "80026801",
+    "new": "8002ac01"
+   }
+  ],
+  "desqueeze_note": "no De-Squeeze Display on the A6700 2.00: nothing to read"
+ }
+}

@@ -1,0 +1,145 @@
+{
+ "design": "pbaspect_a6700_v1",
+ "build": "a6700_200",
+ "camera": "ILCE-6700 (A6700), firmware 2.00",
+ "kind": "avcam_code_data",
+ "title": "In-camera playback of 3840 x 2560 clips, part 2 of 3 (A29): get_aspect_ratio takes a picture 2,560 rows high as one 2,160 rows high",
+ "status": "the two words of page 1 of the contributed avdec8k_a6700_v2 (its author reports playback on an A6700; no logs seen), split off because readcheck.c level 29 carries one code page. Disassembled and emulated here; not run by us on any camera",
+ "code_page": "0x23e000",
+ "code_sites": [
+  {
+   "file_off": "0x23e520",
+   "kernel_address": "0xffffffc00123e520",
+   "old": "081c8252",
+   "new": "bf022871",
+   "asm_old": "mov w8, #0x10e0",
+   "asm_new": "cmp w21, #0xa00",
+   "what": "the 4,320-row case's constant becomes the test for 2,560 rows"
+  },
+  {
+   "file_off": "0x23e524",
+   "kernel_address": "0xffffffc00123e524",
+   "old": "bf02086b",
+   "new": "a0030054",
+   "asm_old": "cmp w21, w8",
+   "asm_new": "b.eq @23e598",
+   "what": "2,560 rows: to the 2,160-row case (width 3840 -> aspect code 2, width 4096 -> 5); any other height falls to the `b.ne` after it, which the test above now sends to the unsupported exit"
+  }
+ ],
+ "data_page": "0x441000",
+ "data_sites": [],
+ "data_guards": [
+  {
+   "file_off": "0x4418c5",
+   "bytes": "5b494d4c444543535441545d6765745f",
+   "what": "the function's own error text (read at 0x23e61c), bytes 0 to 15: '[IMLDECSTAT]get_'"
+  },
+  {
+   "file_off": "0x4418d5",
+   "bytes": "6173706563745f726174696f28292075",
+   "what": "the function's own error text (read at 0x23e61c), bytes 16 to 31: 'aspect_ratio() u'"
+  },
+  {
+   "file_off": "0x4418e5",
+   "bytes": "6e737570706f72746564207769647468",
+   "what": "the function's own error text (read at 0x23e61c), bytes 32 to 47: 'nsupported width'"
+  }
+ ],
+ "order": {
+  "apply": [
+   "the two code words, each one aligned 32-bit store, in address order",
+   "data cache clean and instruction cache invalidate at each, all processors; isb"
+  ],
+  "put_back": [
+   "the two code words",
+   "data cache clean and instruction cache invalidate at each; isb"
+  ],
+  "between_the_two_stores": "level 29 and level 30 both store 0x23e520 first. Apply, one word in: `cmp w21, #0xa00` then the stock `cmp w21, w8` (w8 no longer set to 4320 here) then `b.ne`. Put back, one word in: the stock `mov w8, #0x10e0` then `b.eq 0x23e598` on the flags of the 2,160-row test before it (never taken) then `b.ne`. In both a height above 2,160 rows may go to the unsupported exit for that moment; every instruction executed is one of the function's own or one of the two new ones"
+ },
+ "function": {
+  "get_aspect_ratio": "0x23e4f0",
+  "arguments": "x0 the decoder state, w1 width, w2 height; returns an aspect code, 6 = unsupported (logged)",
+  "callers": [
+   "0x23c178"
+  ]
+ },
+ "emulated": {
+  "3840x2160": {
+   "stock": {
+    "aspect_code": 2,
+    "error_logged": false
+   },
+   "changed": {
+    "aspect_code": 2,
+    "error_logged": false
+   }
+  },
+  "3840x2560": {
+   "stock": {
+    "aspect_code": 6,
+    "error_logged": true
+   },
+   "changed": {
+    "aspect_code": 2,
+    "error_logged": false
+   }
+  },
+  "1920x1080": {
+   "stock": {
+    "aspect_code": 2,
+    "error_logged": false
+   },
+   "changed": {
+    "aspect_code": 2,
+    "error_logged": false
+   }
+  },
+  "4096x2160": {
+   "stock": {
+    "aspect_code": 5,
+    "error_logged": false
+   },
+   "changed": {
+    "aspect_code": 5,
+    "error_logged": false
+   }
+  },
+  "5760x3840": {
+   "stock": {
+    "aspect_code": 6,
+    "error_logged": true
+   },
+   "changed": {
+    "aspect_code": 6,
+    "error_logged": true
+   }
+  },
+  "7680x4320": {
+   "stock": {
+    "aspect_code": 2,
+    "error_logged": false
+   },
+   "changed": {
+    "aspect_code": 6,
+    "error_logged": true
+   }
+  }
+ },
+ "given_up": "the 4,320-row case (7680 wide -> 2, 8192 wide -> 5): with the step applied a 4,320-row picture is unsupported. The A6700 records nothing that high",
+ "checked": {
+  "same_bytes_as_the_contributed_design": true,
+  "no_branch_into_the_changed_words": true
+ },
+ "artifact": "av-cam.bin",
+ "artifact_sha256": "d31bdf03e736da47a1195170e8a72a00a3559ee594ac99799e070d5fa30080ad",
+ "kernel_va_base": "0xffffffc001000000",
+ "avcam_phys": "0x401000000",
+ "generated_by": "build/build_avdec_a6700.py",
+ "code_guard": "the whole code page 0x23e000 apart from the sites must be as in the file, in the mapping and in the kernel's own view",
+ "icache": {
+  "processors": "see /proc/cpuinfo in the step's result; kernel as the FX30's",
+  "alias": "the code page is mapped at a user address with the kernel's offset from a 2 MB boundary (0x3e000), so a virtually indexed instruction cache is invalidated at the same index as the kernel's fetches",
+  "refuse": "an instruction cache that CTR_EL0 says is neither PIPT nor VIPT"
+ },
+ "restore": "readcheck.c level 30 (put back), or a cold boot: av-cam.bin is loaded again from flash"
+}

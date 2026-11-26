@@ -1,0 +1,76 @@
+{
+ "design": "outsz2560_a6700_v1",
+ "build": "a6700_200",
+ "camera": "ILCE-6700, firmware 2.00",
+ "title": "Output size of the stock 4K size class: 3840x2160 to 3840x2560, in the coprocessor's movie size table (RAM) (A6700 2.00)",
+ "kind": "ram_words",
+ "artifact": "cpapp-b.bin, RAM only (tables the coprocessor builds after start-up; none of the words is in the file)",
+ "artifact_sha256": "61b7fe5c0ce227ea865d799b81fe77ae359b7c5dcd39d13c9c2241d9cad23559",
+ "generated_by": "build/build_og_a6700.py",
+ "ported_from": {
+  "design": "outsz2560_v1",
+  "build": "a7iv_602"
+ },
+ "table": "A6700: movie size table 0x199ec2c + 0x50 (set-up 0x4ab69c), unit-count setting 0x199eeb0 (the split rule 0x4b5164 reads byte [0x199eea0 + 0x10]), memory manager id rows 0x25b6a68 and key lists 0x25b8a68",
+ "regions_a_site_or_guard_may_lie_in": {
+  "size_table": [
+   "0x199ec7c",
+   "0x199ecfc"
+  ],
+  "unit_count_setting": [
+   "0x199eea8",
+   "0x199eeb8"
+  ],
+  "dmm_id_rows": [
+   "0x25b6a68",
+   "0x25b7530"
+  ],
+  "dmm_key_lists": [
+   "0x25b8a68",
+   "0x25baa68"
+  ]
+ },
+ "summary": {
+  "sites": 1,
+  "bytes": 4,
+  "output_size": [
+   3840,
+   2560
+  ],
+  "picture_bytes_at_format_code_2": 12288000,
+  "stock_output_unit_bytes": 13271040,
+  "goes_with": [
+   "dmmwb4688_v1",
+   "ogsq_v3"
+  ]
+ },
+ "sites": [
+  {
+   "ram_address": "0x199ecc4",
+   "old": "000f7008",
+   "new": "000f000a",
+   "note": "size class 3, second entry: output width and height [A7 IV 0x143c7bc]"
+  }
+ ],
+ "guards": [
+  {
+   "ram_address": "0x199ecbc",
+   "bytes": "000f70083e040000",
+   "note": "the entry before: 3840, 2160, memory id 0x43e [A7 IV 0x143c7b4]"
+  },
+  {
+   "ram_address": "0x199ecc8",
+   "bytes": "d9020000",
+   "note": "this entry's memory id, 0x2d9 [A7 IV 0x143c7c0]"
+  }
+ ],
+ "checked_against": [
+  "build/emu_size_table.py a6700_200 (the A6700's set-up 0x4ab69c run alone): the size-table words and guards",
+  "build/emu_dmm_server.py --build a6700_200 (the A6700's DMM set-up on its DmmCfg.bin): the id rows and key lists",
+  "assumed, guarded: the 16 bytes around the unit-count setting are zero on the camera (zero-initialised data; read as zero on the A7 IV)"
+ ],
+ "against_the_contributed_kit": {
+  "sites_equal": true,
+  "guards_equal": true
+ }
+}

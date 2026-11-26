@@ -1,0 +1,99 @@
+{
+ "design": "pbformat_a6700_v1",
+ "build": "a6700_200",
+ "camera": "ILCE-6700 (A6700), firmware 2.00",
+ "kind": "avcam_code_data",
+ "title": "In-camera playback of 3840 x 2560 clips, part 3 of 3 (F29): the playback format set-up gives a 3840-wide picture of 2,160 rows or more clip size 0x17",
+ "status": "the one word of page 2 of the contributed avdec8k_a6700_v2 (its author reports playback on an A6700; no logs seen), split off because readcheck.c level 29 carries one code page. Disassembled and emulated here; not run by us on any camera",
+ "code_page": "0x115000",
+ "code_sites": [
+  {
+   "file_off": "0x115dac",
+   "kernel_address": "0xffffffc001115dac",
+   "old": "61000054",
+   "new": "63000054",
+   "asm_old": "b.ne @115db8",
+   "asm_new": "b.lo @115db8",
+   "what": "a 3840-wide picture: `not 2,160 rows` becomes `fewer than 2,160 rows`, so 2,160 rows or more gets clip size 0x17"
+  }
+ ],
+ "data_page": "0x413000",
+ "data_sites": [],
+ "data_guards": [
+  {
+   "file_off": "0x41351b",
+   "bytes": "6465632f73666d635f6465635f74696d",
+   "what": "the function's source-file text (read at 0x115ea4 and on), bytes 0 to 15: 'dec/sfmc_dec_tim'"
+  },
+  {
+   "file_off": "0x41352b",
+   "bytes": "696e675f6578745f6973702e63707000",
+   "what": "the function's source-file text (read at 0x115ea4 and on), bytes 16 to 31: 'ing_ext_isp.cpp\\x00'"
+  },
+  {
+   "file_off": "0x413d3a",
+   "bytes": "556e6578706563746564207069637475",
+   "what": "its error text (read at 0x116234), bytes 0 to 15: 'Unexpected pictu'"
+  },
+  {
+   "file_off": "0x413d4a",
+   "bytes": "72652073697a65202564207820256400",
+   "what": "its error text (read at 0x116234), bytes 16 to 31: 're size %d x %d\\x00'"
+  }
+ ],
+ "order": {
+  "apply": [
+   "the code word, one aligned 32-bit store",
+   "data cache clean and instruction cache invalidate, all processors; isb"
+  ],
+  "put_back": [
+   "the code word",
+   "data cache clean and instruction cache invalidate; isb"
+  ]
+ },
+ "function": {
+  "playback_format_set_up": "0x115cfc",
+  "arguments": "w4 width, w5 height, the output record at [sp, #8]; the clip size is stored at record +8 (0x115e44)"
+ },
+ "emulated": {
+  "3840x2160": {
+   "stock": "clip size 0x17",
+   "changed": "clip size 0x17"
+  },
+  "3840x2560": {
+   "stock": "not a 4K or HD size here (goes on to the smaller sizes / `Unexpected picture size`)",
+   "changed": "clip size 0x17"
+  },
+  "1920x1080": {
+   "stock": "clip size 0x1b",
+   "changed": "clip size 0x1b"
+  },
+  "4096x2160": {
+   "stock": "clip size 0x15",
+   "changed": "clip size 0x15"
+  },
+  "5760x3840": {
+   "stock": "not a 4K or HD size here (goes on to the smaller sizes / `Unexpected picture size`)",
+   "changed": "not a 4K or HD size here (goes on to the smaller sizes / `Unexpected picture size`)"
+  },
+  "7680x4320": {
+   "stock": "clip size 0x4",
+   "changed": "clip size 0x4"
+  }
+ },
+ "checked": {
+  "same_bytes_as_the_contributed_design": true
+ },
+ "artifact": "av-cam.bin",
+ "artifact_sha256": "d31bdf03e736da47a1195170e8a72a00a3559ee594ac99799e070d5fa30080ad",
+ "kernel_va_base": "0xffffffc001000000",
+ "avcam_phys": "0x401000000",
+ "generated_by": "build/build_avdec_a6700.py",
+ "code_guard": "the whole code page 0x115000 apart from the sites must be as in the file, in the mapping and in the kernel's own view",
+ "icache": {
+  "processors": "see /proc/cpuinfo in the step's result; kernel as the FX30's",
+  "alias": "the code page is mapped at a user address with the kernel's offset from a 2 MB boundary (0x115000), so a virtually indexed instruction cache is invalidated at the same index as the kernel's fetches",
+  "refuse": "an instruction cache that CTR_EL0 says is neither PIPT nor VIPT"
+ },
+ "restore": "readcheck.c level 30 (put back), or a cold boot: av-cam.bin is loaded again from flash"
+}

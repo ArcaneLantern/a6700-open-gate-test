@@ -1,0 +1,301 @@
+{
+ "design": "dmmwb_a6700_v1",
+ "build": "a6700_200",
+ "camera": "ILCE-6700, firmware 2.00",
+ "title": "Memory-only DMM change: the movie raw write buffer (memory id 0x43e, key 0x57f) grows from 6016 x 3356 to 6016 x 3980 (23,943,680 bytes) in both layouts that offer it: group 0x8a (three units, parent key 0x6fa) and group 0x8e (parent key 0x74d)",
+ "artifact": "coprocessor RAM (the DMM server's copy of /cp/DmmCfg.bin); no file is changed",
+ "dmmcfg_sha256": "c1d7f0aa9032d4db816195985a15749970586a489b36a8ad43c335e54fba65cd",
+ "cpapp_sha256": "61b7fe5c0ce227ea865d799b81fe77ae359b7c5dcd39d13c9c2241d9cad23559",
+ "generated_by": "build/build_og_a6700.py",
+ "summary": {
+  "sites": 4,
+  "bytes": 16,
+  "unit_size": 23943680,
+  "stock_unit_size": 20189696,
+  "pitch": 6016,
+  "stock_rows": 3356,
+  "new_rows": 3980,
+  "first_stage_rows_of_ogsq_a6700_v1": 3884,
+  "first_stage_bytes": 23366144,
+  "group_0x8a": {
+   "units": 3,
+   "need": 71831040,
+   "parent_key": "0x6fa",
+   "parent_size": 74448896,
+   "left_free": 2617856
+  },
+  "group_0x8e": {
+   "units": 1,
+   "need": 77857280,
+   "parent_key": "0x74d",
+   "parent_size": 81788928,
+   "left_free": 3931648,
+   "other_units": [
+    [
+     "0x634",
+     3317760
+    ],
+    [
+     "0x634",
+     3317760
+    ],
+    [
+     "0x635",
+     13271040
+    ],
+    [
+     "0x635",
+     13271040
+    ],
+    [
+     "0x2da",
+     20736000
+    ]
+   ]
+  },
+  "fit_for_the_write_level": {
+   "unit_size": 23943680,
+   "units_that_must_fit_each_parent": 3,
+   "note": "three units of the new size fit both parents' records (0x6fa: 74,448,896; 0x74d: 81,788,928); group 0x8e's own need (one unit and the five others) is checked here, not by the level"
+  }
+ },
+ "dmm_ram": {
+  "unit_records_base": "0x257bca4",
+  "group_records_base": "0x23a3d00",
+  "workspace_ptr_addr": "0x19d8058",
+  "units_ptr_addr": "0x19d7bac",
+  "ws_units_at": "0x107e0",
+  "n_obj": 1408,
+  "obj_size": 80,
+  "busy_keys": [
+   "0x57f",
+   "0x634",
+   "0x635"
+  ]
+ },
+ "precondition": "no unit object of key 0x57f, 0x634 or 0x635 exists in a division still in force when the words are written (the write level checks the DMM server's unit objects and writes nothing otherwise): with the camera on stills after a cold boot, no movie buffer is open",
+ "restore": "write the old words back under the same condition, or cold boot (the tables are rebuilt from /cp/DmmCfg.bin)",
+ "sites": [
+  {
+   "ram_address": "0x2580cd8",
+   "what": "size of a key 0x57f record of group 0x8a (parent key 0x6fa)",
+   "file_offset_of_the_same_field": "0x7ce4",
+   "old": "00123401",
+   "new": "005a6d01",
+   "old_value": 20189696,
+   "new_value": 23943680
+  },
+  {
+   "ram_address": "0x2580cec",
+   "what": "size of a key 0x57f record of group 0x8a (parent key 0x6fa)",
+   "file_offset_of_the_same_field": "0x7cf8",
+   "old": "00123401",
+   "new": "005a6d01",
+   "old_value": 20189696,
+   "new_value": 23943680
+  },
+  {
+   "ram_address": "0x2580d00",
+   "what": "size of a key 0x57f record of group 0x8a (parent key 0x6fa)",
+   "file_offset_of_the_same_field": "0x7d0c",
+   "old": "00123401",
+   "new": "005a6d01",
+   "old_value": 20189696,
+   "new_value": 23943680
+  },
+  {
+   "ram_address": "0x2580df0",
+   "what": "size of a key 0x57f record of group 0x8e (parent key 0x74d)",
+   "file_offset_of_the_same_field": "0x7f3c",
+   "old": "00123401",
+   "new": "005a6d01",
+   "old_value": 20189696,
+   "new_value": 23943680
+  }
+ ],
+ "unit_record_guards": [
+  {
+   "ram_address": "0x2580ccc",
+   "site_off": 12,
+   "file_hex": "00000000070000007f050000001234010f010000"
+  },
+  {
+   "ram_address": "0x2580ce0",
+   "site_off": 12,
+   "file_hex": "00000000070000007f050000001234010f010000"
+  },
+  {
+   "ram_address": "0x2580cf4",
+   "site_off": 12,
+   "file_hex": "00000000070000007f050000001234010f010000"
+  },
+  {
+   "ram_address": "0x2580de4",
+   "site_off": 12,
+   "file_hex": "00000000070000007f050000001234010f010000"
+  }
+ ],
+ "parent_guards": [
+  {
+   "ram_address": "0x257e954",
+   "key": "0x6fa",
+   "size": 74448896,
+   "file_hex": "0000000014000000fa060000000070040f010000"
+  },
+  {
+   "ram_address": "0x257e968",
+   "key": "0x6fa",
+   "size": 74448896,
+   "file_hex": "0000000014000000fa060000000070040f010000"
+  },
+  {
+   "ram_address": "0x257e990",
+   "key": "0x74d",
+   "size": 81788928,
+   "file_hex": "00000000140000004d0700000000e0040f010000"
+  }
+ ],
+ "checked_in_the_firmware_allocator": {
+  "tool": "build/emu_dmm_server.py --build a6700_200 (the A6700's own DMM server code, alone; see its header for what is made up)",
+  "applied_before_any_open": {
+   "opens_of_0x43e": [
+    [
+     {
+      "address": "0x500000000",
+      "size": 23943680
+     }
+    ],
+    [
+     {
+      "address": "0x5016d5a00",
+      "size": 23943680
+     }
+    ],
+    [
+     {
+      "address": "0x502dab400",
+      "size": 23943680
+     }
+    ],
+    [
+     {
+      "address": "0x504700000",
+      "size": 23943680
+     }
+    ],
+    [
+     {
+      "address": "0x505dd5a00",
+      "size": 23943680
+     }
+    ],
+    [
+     {
+      "address": "0x5074ab400",
+      "size": 23943680
+     }
+    ],
+    [
+     {
+      "address": "0x508e00000",
+      "size": 23943680
+     }
+    ],
+    "no group offers the key now (0xfeff)"
+   ],
+   "open_0x4b7": [
+    {
+     "address": "0x50a4d5a00",
+     "size": 3317760
+    }
+   ],
+   "open_0x4b8": [
+    {
+     "address": "0x50ab29a00",
+     "size": 13271040
+    }
+   ],
+   "all_inside_a_parent_and_disjoint": true,
+   "all_freed": true
+  },
+  "stock_control": {
+   "opens_of_0x43e": [
+    [
+     {
+      "address": "0x500000000",
+      "size": 20189696
+     }
+    ],
+    [
+     {
+      "address": "0x501341200",
+      "size": 20189696
+     }
+    ],
+    [
+     {
+      "address": "0x502682400",
+      "size": 20189696
+     }
+    ],
+    [
+     {
+      "address": "0x504700000",
+      "size": 20189696
+     }
+    ],
+    [
+     {
+      "address": "0x505a41200",
+      "size": 20189696
+     }
+    ],
+    [
+     {
+      "address": "0x506d82400",
+      "size": 20189696
+     }
+    ],
+    [
+     {
+      "address": "0x508e00000",
+      "size": 20189696
+     }
+    ],
+    "no group offers the key now (0xfeff)"
+   ]
+  },
+  "same_number_of_buffers_as_stock": true,
+  "same_places_as_stock_for_the_first_of_each_parent": true,
+  "written_while_a_stock_buffer_is_open": {
+   "open_before": [
+    {
+     "address": "0x500000000",
+     "size": 20189696
+    }
+   ],
+   "open_while_it_is_in_use": [
+    {
+     "address": "0x501341200",
+     "size": 20189696
+    }
+   ],
+   "open_after_both_were_freed": [
+    {
+     "address": "0x500000000",
+     "size": 23943680
+    }
+   ]
+  }
+ },
+ "against_the_contributed_kit": {
+  "sites_equal": true,
+  "unit_records_equal": true,
+  "parent_records": "theirs lists 3 of the file's parent records and ours the same 3",
+  "busy_keys_equal": true
+ },
+ "not_shown": [
+  "that the image hardware takes the taller stage once the buffer is large enough (reported by the contributor, no logs seen)",
+  "what the camera has open when the words are written (the write level checks it and writes nothing if a movie buffer exists)"
+ ]
+}
