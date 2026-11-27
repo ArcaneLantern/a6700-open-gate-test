@@ -34,8 +34,8 @@
 |---|---|---|
 | `check_readonly.cmd` | Confirms the camera runs the 2.00 software the port was made from and reads what every patch site holds. Verdict READY / NOT READY | No |
 | `dump_info.cmd` | **The debug dump for testers.** The same as the check, plus: memory map, the camera's own logs, the sensor's register state, the mode records and the window they program, the memory manager's records, the display (panel type, fit words, frame tables), the playback part of the main processor's log | No |
-| `test1_sensor_window.cmd` | **Test 1:** raw write buffer and sensor steps only. Expected: a steady picture and 3840 × 2160 clips that hold the 3:2 window squeezed | **Yes: memory only** |
-| `test2_output_size.cmd` | **Test 2:** test 1 plus the output size. Expected: a steady picture; a recording may stop after a second (the encoder is still set for 2,160 rows) | **Yes: memory only** |
+| `test1_sensor_window.cmd` | **Diagnostic 1, not a state to shoot with.** Raw write buffer and sensor steps only. Expected: a steady picture and 3840 × 2160 clips that hold the 3:2 window squeezed | **Yes: memory only** |
+| `test2_output_size.cmd` | **Diagnostic 2, not a state to shoot with and not meant to record.** Diagnostic 1 plus the output size, **without the encoder step**. Expected, and the correct result: a steady picture, and **a recording that stops by itself after about a second** | **Yes: memory only** |
 | `open_gate_apply.cmd` | Open gate in five steps: raw write buffer, sensor, output size, **our** encoder design (XAVC HS 4K and XAVC S 4K at 24p / 25p, MP4 headers at 3840 × 2560), rear screen at 3:2. Ends with one read-only dump | **Yes: memory only** |
 | `open_gate_apply_no_screen.cmd` | The same without the screen step | **Yes: memory only** |
 | `open_gate_apply_no_meta.cmd` | The same, MP4 headers left at 3840 × 2160 | **Yes: memory only** |
@@ -77,7 +77,7 @@ The macOS kit is the A7 IV kit's macOS port, carried over unchanged apart from t
 
 Each live run asks for your Mac password: macOS keeps its own driver on the camera's USB connection, and only an administrator can hand the camera over to the script. If macOS refuses to open a .command file, open System Settings > Privacy & Security and click "Open Anyway".
 
-## Android (app 0.1, not run with a camera)
+## Android (app 0.2, not run with a camera)
 
 `android/A6700-OpenGate.apk` runs this kit from a phone connected to the camera by USB-C. It carries exactly the files in `windows/tools` and runs them unchanged; only the USB access, the dialogs and the folder for the results are the phone's.
 
@@ -93,12 +93,17 @@ Each live run asks for your Mac password: macOS keeps its own driver on the came
 ## A suggested order for the first tester
 
 1. `check_readonly.cmd` on STILL. It must say **VERDICT READY**. Then `dump_info.cmd`, also on STILL. Send both folders if anything is not READY, and stop.
-2. Cold boot on STILL, `test1_sensor_window.cmd`. It ends with a dump taken on MOVIE: follow what the script says. Note what the screen shows.
-3. Cold boot on STILL, `test2_output_size.cmd`.
-4. Cold boot on STILL, `open_gate_contributed_apply.cmd` (on a PAL camera you may use `open_gate_50p_apply.cmd` instead). This is the state closest to what its author reports working.
-5. Cold boot on STILL, `open_gate_apply.cmd`: the same sensor side with our own encoder design.
-6. Cold boot on STILL, `open_gate_3x2_test.cmd`: our exact 3:2 window. Do this one only after step 5 gave good clips, so that a fault can be put down to the window alone.
-7. Later, if you like: `playback_fix_apply.cmd` after a 4K apply, and the 5.76K state.
+2. Cold boot on STILL, `open_gate_apply.cmd`. This is open gate itself: all five steps, with our own encoder design. It ends with a dump taken on MOVIE: follow what the script says.
+3. If you like, cold boot on STILL and try `open_gate_contributed_apply.cmd` (on a PAL camera `open_gate_50p_apply.cmd`): the state closest to what the port's author reports working.
+4. Cold boot on STILL, `open_gate_3x2_test.cmd`: our exact 3:2 window. Do this one only after step 2 gave good clips, so that a fault can be put down to the window alone.
+5. Later, if you like: `playback_fix_apply.cmd` after a 4K apply, and the 5.76K state.
+
+**The two diagnostics are only for a camera on which `open_gate_apply` does not work.** They apply the first steps of it and nothing more, to show which step that camera does not take. Neither is a state to shoot with:
+
+- `test1_sensor_window.cmd` (diagnostic 1): sensor steps only. A steady picture and a clip that records mean the sensor takes the taller window.
+- `test2_output_size.cmd` (diagnostic 2): adds the output size but **not the encoder step**, so **a recording stops by itself after about a second. That is its expected result**, and it shows the output size took effect. It is not a fault and the state is not for recording: cold boot and run `open_gate_apply.cmd`.
+
+A tester's A6700 gave exactly these two results on 2026-11-27.
 
 Between tests: battery out for 10 seconds, switch on with the dial on STILL.
 

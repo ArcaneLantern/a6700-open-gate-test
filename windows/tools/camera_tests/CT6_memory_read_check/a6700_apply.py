@@ -3,7 +3,7 @@
   python a6700_apply.py apply      [--no-screen] [--no-meta] [--dry-run] [--no-movie-session]
   python a6700_apply.py putback    [--no-screen] [--dry-run]
   python a6700_apply.py screen | screen-putback  [--dry-run]
-  python a6700_apply.py test1 | test2  [--dry-run]                    (the first tester's ladder)
+  python a6700_apply.py test1 | test2  [--dry-run]                    (DIAGNOSTICS, not usable states: see below)
   python a6700_apply.py si | si-putback  [--dry-run]                  (XAVC S-I 4K, on top of apply)
   python a6700_apply.py apply32 | putback32  [--no-screen] [--no-meta] [--dry-run]   (TEST: apply with the exact 3:2 sensor window)
   python a6700_apply.py applyfull | putbackfull  [--no-screen] [--dry-run]   (the contributed 4K state, NTSC or PAL)
@@ -29,10 +29,14 @@ runner: every site was compared with the 2.00 update's own files, and each step 
             before putback.
   putback   the reverse: S17, L20, L17, L6, L14 (with --no-screen the last four). A cold boot (battery out for 10 seconds) also undoes everything.
   screen / screen-putback   only the screen step (S16) or its put back (S17).
-  test1     L13 + L5: the taller sensor window with the stock output size. Expected: a steady picture on MOVIE and 3840x2160 clips
-            that hold the 3:2 window squeezed. Then one read-only dump on MOVIE.
-  test2     L13 + L5 + L16: plus the output size. Expected: a steady picture; a recording may stop after about a second, because the
-            encoder is still set for 2,160 rows. Then the dump.
+  test1, test2   DIAGNOSTICS for a camera on which apply does not work. They apply only the first steps of apply, to show which step
+            a camera does not take. Neither is a state to shoot with; for open gate itself use apply.
+  test1     diagnostic 1 = L13 + L5: the taller sensor window with the stock output size. Expected: a steady picture on MOVIE and
+            3840x2160 clips that hold the 3:2 window squeezed. Then one read-only dump on MOVIE.
+  test2     diagnostic 2 = L13 + L5 + L16: plus the output size, WITHOUT the encoder step. Expected, and the correct result: a steady
+            picture, and a recording that STOPS BY ITSELF AFTER ABOUT A SECOND, because the encoder is still set for 2,160 rows. That
+            stop shows the output-size step took effect; it is not a fault. Then the dump. (A tester's A6700 gave exactly these two
+            results on 2026-11-27.)
   applyfull THE CONTRIBUTED 4K STATE: L13, L5, L16, then M19 in L19's place (ogfile2560_full_a6700_v1: the contributed encoder design,
             complete: 24p, 25p and 50p in XAVC HS, S and S-I, with the MP4 header heights and the resolution compare), S16. On an NTSC
             camera this writes what the contributor's kit writes for its 4K mode, and the cells and records of the drive modes it leaves
@@ -91,7 +95,12 @@ STEPS = {"apply": ("L13", "L5", "L16", "L19"), "putback": ("L20", "L17", "L6", "
 APPLY_SETS, PUTBACK_SETS = ("apply", "apply32", "applyfull", "apply50", "apply57"), ("putback", "putback32", "putbackfull", "putback50", "putback57")
 TESTS = ("test1", "test2")
 EXPECT = {"test1": "the taller sensor window (5952x3876) with the stock output size. Expected: a steady picture on MOVIE and 3840x2160 clips that hold the 3:2 window squeezed.",
-          "test2": "test 1 plus the output size 3840x2560. Expected: a steady picture; a recording may stop after about a second (the encoder is still set for 2,160 rows)."}
+          "test2": "diagnostic 1 plus the output size 3840x2560, WITHOUT the encoder step. Expected, and the correct result: a steady picture, and a recording that "
+                   "STOPS BY ITSELF AFTER ABOUT A SECOND (the encoder is still set for 2,160 rows)."}
+# what the result means and what to run next, said once the diagnostic has run
+AFTER = {"test1": ("A steady picture and a clip that records mean the sensor takes the taller window: the first two steps of open gate work on this camera.",),
+         "test2": ("A recording that stopped by itself after about a second is the EXPECTED result: the output size took effect and the encoder step is not applied.",
+                   "This state is not for recording, and nothing is wrong with the camera.")}
 RUNNER = HERE / "a6700_run.py"
 LISTER = HERE.parent / "CT1_usb_first_contact" / "ct1_stage2_service.py"
 STILL = "STILL (the Still/Movie/S&Q dial on the still-camera position)"
@@ -188,6 +197,8 @@ def movie_session(test=None):
     if test:
         say("       Watch the rear screen for ten seconds. Write down: a picture? flashing? does the camera switch itself off and on?")
         say("       If there is a steady picture: press REC, record about five seconds, press REC again.")
+        if test == "test2":
+            say("       In this diagnostic the recording is EXPECTED to stop by itself after about a second (there is no encoder step). That is the correct result.")
         say("       If the camera restarts by itself: do NOT pull the battery. Wait until it is on again, leave the dial on Movie.")
     else:
         say("       Look at the rear screen for five seconds and remember what it shows (the whole 3:2 picture? anything wrong?).")
@@ -271,7 +282,8 @@ def main():
     say("  every site was compared with the 2.00 update's files and each step was emulated, but these libraries have not run on a camera.")
     say("  A restart is possible and harmless (the patch is gone after it). Each step writes nothing unless its bytes are exactly the stock bytes.")
     if a.what in TESTS:
-        say("This is %s (%s): %s" % (a.what, " + ".join(steps), EXPECT[a.what]))
+        say("This is DIAGNOSTIC %s (%s), NOT A STATE TO SHOOT WITH: it applies only the first steps of open gate, to show which step a camera" % (a.what[-1], " + ".join(steps)))
+        say("  does not take. For open gate itself use open_gate_apply. What it does: %s" % EXPECT[a.what])
     elif a.what == "apply50":
         say("apply50 is for a camera set to PAL: step Q5 changes the 50p drive mode and writes nothing on an NTSC camera (the run then stops at Q5).")
         say("  It is the state the contributor's kit applies (its complete encoder design, M19). It cannot follow apply: put that back first, or cold boot.")
@@ -357,9 +369,11 @@ def main():
             movie_session(a.what if a.what in TESTS else None)
         say()
         if a.what in TESTS:
+            for line in AFTER[a.what]:
+                say(line)
+            say("NEXT, for open gate itself: battery out for 10 seconds, switch on with the dial on the still position, and run open_gate_apply.")
             say("Please send the newest folders in camera_private, and what the screen did on Movie: a picture (which shape?), flashing,")
             say("  a restart? If it recorded: the clip's properties (size, frame rate), or the clip. To return to stock: battery out for 10 seconds.")
-            say("  Before the next test: battery out for 10 seconds, switch on with the dial on the still position.")
             return
         say({"applyfull": "Use only the 4K formats (XAVC HS, S or S-I) at 24p (25p on PAL) while it is applied: other frame rates are not set up and fail. "
                           "On PAL do NOT record 50p: without the 50p sensor step its picture is a 16:9 read-out stretched to 3:2.",
